@@ -58,12 +58,11 @@ const calcTip = function (billValue) {
       total.push(billValue[index] + tips[index]);
     }
   }
-};
+};     
 
 calcTip(billsArry);
 console.log(tips);
 console.log(total);
-
 //calculating the average of the total
 
 let sum = 0;
@@ -77,3 +76,7 @@ const calcAverage = function (arr) {
 
 const aver = calcAverage(total);
 console.log(aver);
+todo:
+done:
+logic:
+bug: 

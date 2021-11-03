@@ -16,8 +16,9 @@
 
 const dolphinScores = [96, 108, 89];
 const koalasScores = [88, 91, 0];
-let sumDol = 0;
-let sumKoala = 0;
+let sumDol,
+  sumKoala = 0;
+//let sumKoala = 0;
 console.log(dolphinScores.length);
 console.log(koalasScores.length);
 
