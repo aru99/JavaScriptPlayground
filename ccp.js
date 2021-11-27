@@ -73,27 +73,63 @@
 
 // todo: CC Arrays
 
-let tipValue;
+// let tipValue;
 
-// function to calculate the tip value
-const calcTip = (billValue) => {
-  billValue >= 50 && billValue <= 300
-    ? (tipValue = billValue * 0.15)
-    : (tipValue = billValue * 0.2);
-  return tipValue;
+// // function to calculate the tip value
+// const calcTip = (billValue) => {
+//   billValue >= 50 && billValue <= 300
+//     ? (tipValue = billValue * 0.15)
+//     : (tipValue = billValue * 0.2);
+//   return tipValue;
+// };
+
+// console.log(calcTip(100));
+// const billsArr = [125, 555, 44];
+// const bills = [125, 555, 44];
+// const tip = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+// console.log(tip);
+
+// let total = [];
+
+// for (let i = 0; i < bills.length; i++) {
+//   console.log(bills[i], tip[i]);
+//   total.push(bills[i] + tip[i]);
+// }
+// console.log(total);
+// // done:
+
+// todo: Object CC
+
+const mark = {
+  name: `Mark Shannon`,
+  height: 1.69,
+  weight: 78,
+  markBMI: function () {
+    this.BMI = this.weight / this.height ** 2;
+    return this.BMI;
+  },
 };
 
-console.log(calcTip(100));
-const billsArr = [125, 555, 44];
-const bills = [125, 555, 44];
-const tip = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const john = {
+  name: `John doe`,
+  height: 1.95,
+  weight: 92,
+  johnBMI: function () {
+    this.BMI = this.weight / this.height ** 2;
+    return this.BMI;
+  },
+};
 
-console.log(tip);
+console.log(mark.markBMI(), john.johnBMI());
 
-let total = [];
-
-for (let i = 0; i < bills.length; i++) {
-  console.log(bills[i], tip[i]);
-  total.push(bills[i] + tip[i]);
+if (mark.markBMI() > john.johnBMI()) {
+  console.log(
+    `${mark.name}'s BMI of ${mark.BMI} is higher than ${john.name}'s BMI of ${john.BMI}`
+  );
+} else if (john.johnBMI() > mark.markBMI()) {
+  console.log(
+    `${john.name}'s BMI of ${john.BMI} is higher than ${mark.name}'s BMI of ${mark.BMI}`
+  );
 }
-console.log(total);
+// done:
