@@ -50,3 +50,50 @@
 // //done:
 
 //todo: Functions coding Challenge
+
+// NOTE: always define your function at the top of the file before using it
+// const calcAverage = (sc1, sc2, sc3) => {
+//   return (sc1 + sc2 + sc3) / 3;
+// };
+
+// const dolphinAvgScore = calcAverage(10, 20, 30);
+// const koalasAvgScore = calcAverage(30, 40, 50);
+// console.log(dolphinAvgScore, koalasAvgScore);
+
+// const checkWinner = function (avgDolphin, avgKoala) {
+//   if (avgDolphin > avgKoala) {
+//     console.log(`Dolphins win (${(avgDolphin, avgKoala)})`);
+//   } else if (avgKoala > avgDolphin) {
+//     console.log(`Koalas win (${avgKoala} ${avgDolphin})`);
+//   }
+// };
+
+// checkWinner(dolphinAvgScore, koalasAvgScore);
+// //done:
+
+// todo: CC Arrays
+
+let tipValue;
+
+// function to calculate the tip value
+const calcTip = (billValue) => {
+  billValue >= 50 && billValue <= 300
+    ? (tipValue = billValue * 0.15)
+    : (tipValue = billValue * 0.2);
+  return tipValue;
+};
+
+console.log(calcTip(100));
+const billsArr = [125, 555, 44];
+const bills = [125, 555, 44];
+const tip = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+console.log(tip);
+
+let total = [];
+
+for (let i = 0; i < bills.length; i++) {
+  console.log(bills[i], tip[i]);
+  total.push(bills[i] + tip[i]);
+}
+console.log(total);
