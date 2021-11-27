@@ -92,3 +92,4 @@ const checkwinner = function (avgDolphins, avgKoalas) {
 };
 //--- FN chechWinner E ---
 console.log(checkwinner(AvgScoreDoplhins, AvgScoreKoalas));
+
