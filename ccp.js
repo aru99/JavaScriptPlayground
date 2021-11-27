@@ -101,35 +101,35 @@
 
 // todo: Object CC
 
-const mark = {
-  name: `Mark Shannon`,
-  height: 1.69,
-  weight: 78,
-  markBMI: function () {
-    this.BMI = this.weight / this.height ** 2;
-    return this.BMI;
-  },
-};
+// const mark = {
+//   name: `Mark Shannon`,
+//   height: 1.69,
+//   weight: 78,
+//   markBMI: function () {
+//     this.BMI = this.weight / this.height ** 2;
+//     return this.BMI;
+//   },
+// };
 
-const john = {
-  name: `John doe`,
-  height: 1.95,
-  weight: 92,
-  johnBMI: function () {
-    this.BMI = this.weight / this.height ** 2;
-    return this.BMI;
-  },
-};
+// const john = {
+//   name: `John doe`,
+//   height: 1.95,
+//   weight: 92,
+//   johnBMI: function () {
+//     this.BMI = this.weight / this.height ** 2;
+//     return this.BMI;
+//   },
+// };
 
-console.log(mark.markBMI(), john.johnBMI());
+// console.log(mark.markBMI(), john.johnBMI());
 
-if (mark.markBMI() > john.johnBMI()) {
-  console.log(
-    `${mark.name}'s BMI of ${mark.BMI} is higher than ${john.name}'s BMI of ${john.BMI}`
-  );
-} else if (john.johnBMI() > mark.markBMI()) {
-  console.log(
-    `${john.name}'s BMI of ${john.BMI} is higher than ${mark.name}'s BMI of ${mark.BMI}`
-  );
-}
+// if (mark.markBMI() > john.johnBMI()) {
+//   console.log(
+//     `${mark.name}'s BMI of ${mark.BMI} is higher than ${john.name}'s BMI of ${john.BMI}`
+//   );
+// } else if (john.johnBMI() > mark.markBMI()) {
+//   console.log(
+//     `${john.name}'s BMI of ${john.BMI} is higher than ${mark.name}'s BMI of ${mark.BMI}`
+//   );
+// }
 // done:
