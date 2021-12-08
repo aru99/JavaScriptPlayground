@@ -33,3 +33,18 @@ console.log("before marrige : ", jessica.lastName);
 console.log("after marrige:", marriedJessica.lastName);
 
 //copying objects
+const arm = {
+  firstName: "mohammad",
+  lastName: "Arman",
+  age: 23,
+  job: "developer",
+};
+
+const devArm = Object.assign({}, arm);
+devArm.job = "business Owner";
+console.log(
+  arm,
+  `
+`,
+  devArm
+);
