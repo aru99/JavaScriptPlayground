@@ -67,3 +67,4 @@ const addExpress = function () {
 };
 
 console.log(addExpress(2, 3, 5));
+console.log(addExpress(2, 3, 4));
