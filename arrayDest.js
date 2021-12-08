@@ -32,6 +32,8 @@ const restaurant = {
   },
 };
 
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 //===============================
 /*let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
