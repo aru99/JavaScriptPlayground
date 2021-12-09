@@ -27,6 +27,9 @@ const restaurant = {
     console.log(`Hi ${customerName}, your order of ${this.starterMenu[starterIndex]} & ${this.mainMenu[mainIndex]}
     has been recieved and will be delivered on ${address} ${pincode} at ${time} `);
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -60,6 +63,28 @@ const {
 console.log(restaurantName, hours, tags);
 const { menu = [], starterMenue: starters = [] } = restaurant;
 
+//spreadding an array
+const arr = [4, 5, 6];
+const newArry = [1, 2, 3, ...arr];
+console.log(newArry);
+
+const newMenue = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenue);
+//copy array, this will create a shallow copy of the array, similar to Object.assign() thing in objects
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+//joining two arrays
+const fullMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(fullMenu);
+
+const ingredeints = [
+  prompt(`let's make pasta, Ingredient 1 ?`),
+  prompt(`let's make pasta, Ingredient 2 ?`),
+  prompt(`let's make pasta, Ingredient 3 ?`),
+];
+console.log(...ingredeints);
+restaurant.orderPasta(...ingredeints);
+//---------------------------
 // //nested objects
 // const {
 //   fri: { open: OpenFri, close: closeFri },
