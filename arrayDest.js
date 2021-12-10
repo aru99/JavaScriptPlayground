@@ -46,44 +46,45 @@ const restaurant = {
   },
 };
 
-restaurant.orderDelivery({
-  customerName: `Arman`,
-  time: `22:30`,
-  address: `Arjangarh, delhi`,
-  pincode: 110047,
-  starterIndex: 3,
-  mainIndex: 2,
-});
+// restaurant.orderDelivery({
+//   customerName: `Arman`,
+//   time: `22:30`,
+//   address: `Arjangarh, delhi`,
+//   pincode: 110047,
+//   starterIndex: 3,
+//   mainIndex: 2,
+// });
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
-const { menu = [], starterMenue: starters = [] } = restaurant;
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+// const { menu = [], starterMenue: starters = [] } = restaurant;
 
-//spreadding an array
-const arr = [4, 5, 6];
-const newArry = [1, 2, 3, ...arr];
-console.log(newArry);
+// //spreadding an array
+// const arr = [4, 5, 6];
+// const newArry = [1, 2, 3, ...arr];
+// console.log(newArry);
 
-const newMenue = [...restaurant.mainMenu, "Gnocci"];
-console.log(newMenue);
-//copy array, this will create a shallow copy of the array, similar to Object.assign() thing in objects
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
-//joining two arrays
-const fullMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(fullMenu);
+// const newMenue = [...restaurant.mainMenu, "Gnocci"];
+// console.log(newMenue);
+// //copy array, this will create a shallow copy of the array, similar to Object.assign() thing in objects
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
+// //joining two arrays
+// const fullMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(fullMenu);
 
-const ingredeints = [
-  prompt(`let's make pasta, Ingredient 1 ?`),
-  prompt(`let's make pasta, Ingredient 2 ?`),
-  prompt(`let's make pasta, Ingredient 3 ?`),
-];
-console.log(...ingredeints);
-restaurant.orderPasta(...ingredeints);
+// const ingredeints = [
+//   prompt(`let's make pasta, Ingredient 1 ?`),
+//   prompt(`let's make pasta, Ingredient 2 ?`),
+//   prompt(`let's make pasta, Ingredient 3 ?`),
+// ];
+// console.log(...ingredeints);
+// restaurant.orderPasta(...ingredeints);
+
 //---------------------------
 // //nested objects
 // const {
