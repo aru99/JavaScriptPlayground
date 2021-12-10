@@ -30,6 +30,13 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+  orderPizza: function (...stuffToPut) {
+    console.log(`your pasta with :`);
+    for (let i = 0; i < stuffToPut.length; i++) {
+      console.log(stuffToPut[i]);
+    }
+    console.log(`is ready`);
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -46,6 +53,33 @@ const restaurant = {
   },
 };
 
+//
+const pizzaStuffToPut = [
+  prompt(`Stuff 1 :`),
+  prompt(`Stuff 2 :`),
+  prompt(`Stuff 3 :`),
+];
+
+console.log(pizzaStuffToPut);
+restaurant.orderPizza(...pizzaStuffToPut);
+//rest pattern because left side of =
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(otherFood);
+
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(sat, weekDays);
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+//---------------------------------------
 // restaurant.orderDelivery({
 //   customerName: `Arman`,
 //   time: `22:30`,
