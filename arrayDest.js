@@ -5,6 +5,20 @@ const flights =
   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
 // Data needed for first part of the section
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -13,9 +27,12 @@ const restaurant = {
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
   //fn for ordering food
-  order: function (starterIndex, mainIndex) {
+  //writing function as per ES2021
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  //writing function as per pre ES2021
   orderDelivery: function ({
     time,
     address,
@@ -37,21 +54,27 @@ const restaurant = {
     }
     console.log(`is ready`);
   },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  openingHours,
 };
+
+//looping over Objects
+
+/*
+console.log(restaurant.openingHours);
+//optional chaning
+
+//console.log(restaurant.openingHours.thu?.open);
+console.log(restaurant?.openingHours?.mon?.open ?? "Closed");
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant.deliveryTime?.(1, 2) ?? "method does not exist");
+
+//for of looping over an array
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1} : ${el}`);
+// }
+// console.log(menu.entries());
 
 const rest1 = {
   name: "pizzahut",
@@ -75,7 +98,6 @@ rest2.owner &&= `<Classified>`;
 console.log(rest2);
 rest1.owner ||= `no present`;
 console.log(rest1);
-/*
 
 // //
 // const pizzaStuffToPut = [
