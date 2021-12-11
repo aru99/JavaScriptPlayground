@@ -65,7 +65,7 @@ const game = {
   },
 };
 //1
-const [players1, players2] = game.players;
+/*const [players1, players2] = game.players;
 console.log(players1, players2);
 //2
 const [gk, ...fieldPlayers] = players1;
@@ -88,6 +88,7 @@ game.printGoals(...game.scored);
 game.odds.team1 < game.odds.team2 && console.log("team1 is more likely to win");
 
 team2 < team1 && console.log(`team2 is more likely to win`);
+*/
 ///////////////////////////////////////
 // Coding Challenge #2
 
@@ -111,3 +112,8 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+
+//1
+for (const [i, el] of game.scored.entries()) {
+  console.log(`Goal ${i + 1} : ${el}`);
+}
