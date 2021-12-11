@@ -53,32 +53,56 @@ const restaurant = {
   },
 };
 
-//
-const pizzaStuffToPut = [
-  prompt(`Stuff 1 :`),
-  prompt(`Stuff 2 :`),
-  prompt(`Stuff 3 :`),
-];
+const rest1 = {
+  name: "pizzahut",
+  numGuest: 10,
+};
 
-console.log(pizzaStuffToPut);
-restaurant.orderPizza(...pizzaStuffToPut);
-//rest pattern because left side of =
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
+const rest2 = {
+  name: "sandoz",
+  owner: "ted",
+};
 
-console.log(otherFood);
+//rest2.numGuest = rest2.numGuest || 10;
+rest2.numGuest ||= 10;
+//rest1.numGuest = rest1.numGuest || 10;
+rest1.numGuest ||= 10;
+console.log(rest1);
+console.log(rest2);
 
-const { sat, ...weekDays } = restaurant.openingHours;
-console.log(sat, weekDays);
+//AND assignment operator
+rest2.owner &&= `<Classified>`;
+console.log(rest2);
+rest1.owner ||= `no present`;
+console.log(rest1);
+/*
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// //
+// const pizzaStuffToPut = [
+//   prompt(`Stuff 1 :`),
+//   prompt(`Stuff 2 :`),
+//   prompt(`Stuff 3 :`),
+// ];
 
-const guestsCorrect = restaurant.numGuests ?? 10;
-console.log(guestsCorrect);
+// console.log(pizzaStuffToPut);
+// restaurant.orderPizza(...pizzaStuffToPut);
+// //rest pattern because left side of =
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+
+// console.log(otherFood);
+
+// const { sat, ...weekDays } = restaurant.openingHours;
+// console.log(sat, weekDays);
+
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// const guestsCorrect = restaurant.numGuests ?? 10;
+// console.log(guestsCorrect);
 //---------------------------------------
 // restaurant.orderDelivery({
 //   customerName: `Arman`,
