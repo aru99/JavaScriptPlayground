@@ -64,6 +64,7 @@ const game = {
     console.log(`${playerNames.length} goals were scored`);
   },
 };
+
 //1
 /*const [players1, players2] = game.players;
 console.log(players1, players2);
@@ -117,3 +118,14 @@ GOOD LUCK 😀
 for (const [i, el] of game.scored.entries()) {
   console.log(`Goal ${i + 1} : ${el}`);
 }
+//2
+console.log(Object.values(game.odds));
+let sum = 0;
+for (const value of Object.values(game.odds)) {
+  console.log(value);
+  sum += value;
+  console.log(sum);
+}
+
+console.log(`sum is ${sum}`);
+console.log(`Average is ${sum / Object.values(game.odds).length}`);
