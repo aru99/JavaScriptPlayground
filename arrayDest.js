@@ -94,6 +94,28 @@ for (const [key, dish] of rest) {
     console.log(`Dish number ${key} : ${dish}`);
   }
 }
+
+const quizz = new Map([
+  ["question", "which is the best programming language in the world?"],
+  [1, "C++"],
+  [2, "java"],
+  [3, "javascript"],
+  ["correct", 3],
+  [true, "correct"],
+  [false, "try again"],
+]);
+
+console.log(quizz.get("question"));
+for (const [key, option] of quizz) {
+  if (typeof key === "number") {
+    console.log(`Answer ${key}: ${option}`);
+  }
+}
+
+const answer = Number(prompt(`your Answer`));
+console.log(answer);
+//print success/ faliure message
+console.log(quizz.get(quizz.get("correct") === answer));
 /*
 //sets-----------------
 const orderSet = new Set(["pasta", "pizza", "pizza", "risotto"]);
