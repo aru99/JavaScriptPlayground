@@ -57,6 +57,65 @@ const restaurant = {
   openingHours,
 };
 
+//========== Maps =============
+
+const rest = new Map();
+rest.set("name", `Amana's Kitchen`);
+rest.set(110047, "Arjangarh");
+console.log(rest.set(110025, "okhla"));
+rest
+  .set("categories", ["indian", "veg", "non-veg"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "we are open :D")
+  .set(false, "we are closed")
+  .set(1, "biryani")
+  .set(2, "chiken")
+  .set(3, "rogan gost");
+console.log(rest.set());
+console.log(rest.get("name"));
+console.log(rest.get(true));
+
+const time = 21;
+const restaurnatStatus = rest.get(
+  time > rest.get("open") && time < rest.get("close")
+);
+console.log(restaurnatStatus);
+console.log(rest.has("categories"));
+rest.delete(110025);
+console.log(rest);
+console.log(rest.size);
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+for (const [key, dish] of rest) {
+  if (typeof key === "number") {
+    console.log(`Dish number ${key} : ${dish}`);
+  }
+}
+/*
+//sets-----------------
+const orderSet = new Set(["pasta", "pizza", "pizza", "risotto"]);
+console.log(orderSet);
+
+console.log(new Set("Armaan"));
+console.log(orderSet.size);
+console.log(orderSet.has("pizza"));
+console.log(orderSet.has("Pizza"));
+orderSet.add("garlic Bread", "garlic Bread", "Garlic Bread");
+console.log(orderSet);
+
+//looping over a set
+for (const order of orderSet) {
+  console.log(order);
+}
+
+const staff = ["waiter", "chef", "waiter", "chef", "manager"];
+const UniqueStaff = [...new Set(staff)];
+console.log(UniqueStaff);
+console.log(new Set("Mohammad Arman").size);
+
 //property Names
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -80,7 +139,7 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we are open from ${open} to ${close}`);
 }
 
-/*
+
 console.log(restaurant.openingHours);
 //optional chaning
 
