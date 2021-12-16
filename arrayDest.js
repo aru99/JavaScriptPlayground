@@ -116,6 +116,7 @@ const answer = Number(prompt(`your Answer`));
 console.log(answer);
 //print success/ faliure message
 console.log(quizz.get(quizz.get("correct") === answer));
+console.log("didnt code");
 /*
 //sets-----------------
 const orderSet = new Set(["pasta", "pizza", "pizza", "risotto"]);
