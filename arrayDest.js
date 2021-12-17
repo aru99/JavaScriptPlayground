@@ -117,6 +117,7 @@ console.log(answer);
 //print success/ faliure message
 console.log(quizz.get(quizz.get("correct") === answer));
 console.log("didnt code");
+console.log("need to look into a proper discpline for coding");
 /*
 //sets-----------------
 const orderSet = new Set(["pasta", "pizza", "pizza", "risotto"]);
