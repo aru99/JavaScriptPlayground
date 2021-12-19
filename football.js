@@ -194,3 +194,10 @@ console.log(
 );
 
 //4
+for (const [time, event] of gameEvents) {
+  if (time <= 45 && time >= 0) {
+    console.log(`First Half : ${event}`);
+  } else if (time > 45 && time < 92) {
+    console.log(`Second Half : ${event}`);
+  }
+}
