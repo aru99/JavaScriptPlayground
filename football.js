@@ -113,7 +113,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
-
+/*
 //1
 for (const [i, el] of game.scored.entries()) {
   console.log(`Goal ${i + 1} : ${el}`);
@@ -137,7 +137,7 @@ for (const [team, odd] of Object.entries(game.odds)) {
   console.log(team, odd);
   console.log("010");
 }
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #3
 
@@ -145,7 +145,7 @@ for (const [team, odd] of Object.entries(game.odds)) {
 Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
 
 1. Create an array 'events' of the different game events that happened (no duplicates)
-2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+2. After the game has finished, it was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
 3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
       [FIRST HALF] 17: ⚽️ GOAL
@@ -166,3 +166,14 @@ const gameEvents = new Map([
   [80, "⚽️ GOAL"],
   [92, "🔶 Yellow card"],
 ]);
+
+//1 logic: since duplicates are not required in the new array we would be using sets
+
+console.log(gameEvents.values());
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+for (const [eventNumber, event] of events.entries()) {
+  console.log(event);
+}
+
+//2 logic:
