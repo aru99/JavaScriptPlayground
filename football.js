@@ -177,3 +177,20 @@ for (const [eventNumber, event] of events.entries()) {
 }
 
 //2 logic:
+gameEvents.delete(64);
+
+//3 logic:
+
+//const numberOfEvents = [...gameEvents.values()].length; //-> noob way
+
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`
+);
+
+//4
