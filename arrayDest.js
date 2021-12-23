@@ -57,6 +57,11 @@ const restaurant = {
   openingHours,
 };
 
+//========strings=========
+const airline = "TAP Air portugal";
+const plave = "A320";
+
+/*
 //========== Maps =============
 
 const rest = new Map();
@@ -118,7 +123,7 @@ console.log(answer);
 console.log(quizz.get(quizz.get("correct") === answer));
 console.log("didnt code");
 console.log("need to look into a proper discpline for coding");
-/*
+
 //sets-----------------
 const orderSet = new Set(["pasta", "pizza", "pizza", "risotto"]);
 console.log(orderSet);
