@@ -61,6 +61,29 @@ const restaurant = {
 const airline = "TAP Air portugal";
 const plave = "A320";
 
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+//function to check middle seat or not
+const checkMiddleSeat = function (seat) {
+  //B and E are middle seats, seat numbers are generally like 11B, 10A like that
+  const seatLetter = seat.slice(-1);
+
+  // refactored
+  seatLetter === "B" || seatLetter === "E"
+    ? console.log(`the selected seat ${seat} is a middle seat`)
+    : console.log(`The selected seat ${seat} is not a middle seat`);
+  //noob
+  // if (seatLetter === "B" || seatLetter === "E") {
+  //   console.log(`the selected seat ${seat} is a middle seat`);
+  // } else {
+  //   console.log(`The selected seat ${seat} is not a middle seat`);
+  // }
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("12A");
+checkMiddleSeat("13E");
+checkMiddleSeat("10A");
 /*
 //========== Maps =============
 
