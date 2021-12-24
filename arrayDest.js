@@ -80,6 +80,41 @@ const checkMiddleSeat = function (seat) {
   // }
 };
 
+//split method in string
+console.log("a very nice string".split(" "));
+const [firstname, lastname] = `mohammad arman`.split(" ");
+const newName = [
+  "Mr.",
+  firstname[0].toUpperCase() + firstname.slice(1).toLowerCase(),
+  lastname[0].toUpperCase() + lastname.slice(1).toLowerCase(),
+].join(" ");
+console.log(newName);
+
+//write a function to capitalize a name
+const capitalizeName = function (name) {
+  const wordsOfName = name.toLowerCase().split(" ");
+  const namesUpper = [];
+
+  for (const word of wordsOfName) {
+    namesUpper.push(word[0].toUpperCase() + word.toLowerCase().slice(1));
+  }
+  console.log(namesUpper.join(" "));
+};
+capitalizeName(`mohammad arman`);
+capitalizeName(`jessica ann smith davis`);
+capitalizeName(`jonas schmedtmann`);
+
+//padding
+//write credit card masking function
+const maskCreditCard = function (creditCradNumber) {
+  const str = creditCradNumber + "";
+  const lastFourDigits = str.slice(-4);
+  return lastFourDigits.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(12345678));
+
+/*
 checkMiddleSeat("11B");
 checkMiddleSeat("12A");
 checkMiddleSeat("13E");
@@ -108,8 +143,26 @@ const priceUSD = "123,56$";
 console.log(priceUSD);
 const priceINR = priceUSD.replace(",", ".").replace("$", "Rs");
 console.log(priceINR);
+
+const announcement = `All passangers are hereby requested to come to boarding door 23. Boarding door 23!`;
+//console.log(announcement.replace("door", "gate"));
+console.log(announcement.replaceAll("door", "gate"));
+// booleans : includes(), startsWith(), endsWith()
+//write a function to check passanger baggage
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes("knife") || baggage.includes("gun ")) {
+    console.log(`you are NOT ALLOWED onboard`);
+  } else {
+    console.log(`Welcome aboard`);
+  }
+};
+checkBaggage(`I have a Laptop, some Food and a Pocket Knife`);
+checkBaggage(`Socks and Camera`);
+checkBaggage(`Got some snacks and a Gun for protection`);
 //
-/*
+
 //========== Maps =============
 
 const rest = new Map();
