@@ -6,3 +6,32 @@ const flights =
 //              Arrival from BRU to FAO (11h45)
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
+
+console.log(flights.split("+ "));
+
+for (const plane of flights.split("+")) {
+  const [type, from, to, time] = plane.split(";");
+  //   console.log(type.toLowerCase().replaceAll("_", " ").trim());
+  if (
+    type.toLowerCase().replaceAll("_", " ").trim() === `delayed departure` ||
+    type.toLowerCase().replaceAll("_", " ").trim() === `delayed arrival`
+  ) {
+    console.log(
+      `🔴${type.replaceAll("_", " ").trim()} ${from
+        .slice(0, 3)
+        .toUpperCase()} to ${to.slice(0, 3).toUpperCase()} ${time.replaceAll(
+        ":",
+        "hr"
+      )}`.padStart(40)
+    );
+  } else {
+    console.log(
+      `${type.replaceAll("_", " ").trim()} ${from
+        .slice(0, 3)
+        .toUpperCase()} to ${to.slice(0, 3).toUpperCase()} ${time.replace(
+        ":",
+        "hr"
+      )}`.padStart(40)
+    );
+  }
+}
