@@ -84,6 +84,31 @@ checkMiddleSeat("11B");
 checkMiddleSeat("12A");
 checkMiddleSeat("13E");
 checkMiddleSeat("10A");
+console.log(airline.toUpperCase());
+console.log(airline.toLocaleLowerCase());
+//fxing capitalizatoin
+const passangerName = "SiDDhaRtH";
+const passangerNameLowerCase = passangerName.toLowerCase();
+const passangerNameFortmat =
+  passangerNameLowerCase[0].toUpperCase() + passangerNameLowerCase.slice(1);
+console.log(passangerNameLowerCase);
+console.log(passangerNameFortmat);
+//write a function that recieves any name and converts it into the right format as above
+
+const nameFormatter = function (name) {
+  const nameLowerCase = name.toLowerCase();
+  return nameLowerCase[0].toUpperCase() + nameLowerCase.slice(1);
+};
+console.log(nameFormatter("ArmAAn"));
+console.log(nameFormatter("ShiVani"));
+console.log(nameFormatter("MoHaMMaD"));
+
+//replacing
+const priceUSD = "123,56$";
+console.log(priceUSD);
+const priceINR = priceUSD.replace(",", ".").replace("$", "Rs");
+console.log(priceINR);
+//
 /*
 //========== Maps =============
 
