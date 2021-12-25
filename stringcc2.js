@@ -14,7 +14,7 @@ console.log(flights.split("+ "));
 const trimStr = (str) => str.toLowerCase().replaceAll("_", " ").trim();
 //fn2
 const trimStr2 = (str) => str.replaceAll("_", " ").trim();
-
+//done: refactoring
 for (const plane of flights.split("+")) {
   const [type, from, to, time] = plane.split(";");
   //   console.log(type.toLowerCase().replaceAll("_", " ").trim());
