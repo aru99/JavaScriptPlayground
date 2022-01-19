@@ -21,3 +21,23 @@ const createBooking = function (
 
 createBooking("LH123", 10);
 */
+const flight = "LH234";
+const ayesha = {
+  name: "Ayesha",
+  passport: 1234567,
+};
+
+const checkIn = (flightNum, passanger) => {
+  flightNum = "LH999";
+  passanger.name = "Ms." + passanger.name;
+
+  if (passanger.passport === 1234567) {
+    console.log("checked In");
+  } else {
+    alert("wrong passanger passport");
+  }
+};
+
+checkIn(flight, ayesha);
+console.log(flight);
+console.log(ayesha);
