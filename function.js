@@ -20,7 +20,7 @@ const createBooking = function (
 };
 
 createBooking("LH123", 10);
-*/
+
 const flight = "LH234";
 const ayesha = {
   name: "Ayesha",
@@ -41,3 +41,29 @@ const checkIn = (flightNum, passanger) => {
 checkIn(flight, ayesha);
 console.log(flight);
 console.log(ayesha);
+*/
+const bookings = [];
+
+const createBooking = function (
+  flightNum,
+  numPassangers = 1,
+  price = 199 * (numPassangers / 5.2)
+) {
+  //setting default parameters ES5
+  //numPassangers = numPassangers || 1;
+  //price = price || 199;
+
+  //enhanced oobject lieteral
+  const booking = {
+    flightNum,
+    numPassangers,
+    price,
+  };
+  console.log(booking);
+  bookings.push(booking);
+};
+
+createBooking("LH123");
+createBooking("LH134", 100);
+createBooking("LH456", 123);
+createBooking("LH234", undefined);
