@@ -41,7 +41,7 @@ const checkIn = (flightNum, passanger) => {
 checkIn(flight, ayesha);
 console.log(flight);
 console.log(ayesha);
-*/
+
 const bookings = [];
 
 const createBooking = function (
@@ -67,3 +67,29 @@ createBooking("LH123");
 createBooking("LH134", 100);
 createBooking("LH456", 123);
 createBooking("LH234", undefined);
+*/
+
+const flight = "LH2345";
+const travelerDetails = {
+  name: "Mohammad Arman ",
+  passportNumber: 2345678,
+  gender: "M",
+};
+
+const checkIn = function (flightNumber, person) {
+  flightNumber = "LH999";
+  if (person.gender === "M") {
+    person.name = "Mr. " + person.name;
+  } else if (person.gender === "F") {
+    person.name = "Ms. " + person.name;
+  }
+
+  if (person.passportNumber === 2345678) {
+    console.log("Checked In");
+  } else {
+    console.log("Wrong Passport");
+  }
+};
+
+checkIn(flight, travelerDetails);
+console.log(travelerDetails.name);
