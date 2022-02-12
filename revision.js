@@ -24,6 +24,8 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  //here the sequence of parameter does not matter as we are destructuting an object, use this type of function when you have a lot of parameters
   orderDelivery: function ({
     starterIndex,
     mainIndex,
