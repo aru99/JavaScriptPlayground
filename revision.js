@@ -40,18 +40,56 @@ const restaurant = {
       )}, will be deliverd to ${address} at around ${eta} `
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`here is your pasta with ${ing1},${ing2},${ing3}`);
+  },
 };
 
 ////////////////////////////////////////////////////////////////////////
 
-restaurant.orderDelivery({
-  orderTime: "22:30",
-  eta: Number(this.orderTime) + 30,
-  address: "ArjanGarh, Delhi 110047",
-  mainIndex: 2,
-  starterIndex: 1,
-});
+//topic:--------------spread opreator-------------------
+//swapping prac
+let a = 13;
+let b = 14;
+console.log(a, b);
+[a, b] = [b, a];
+console.log(a, b);
 
+const arr = [4, 5, 6, 7, 8];
+const arr2 = [1, 2, 3, ...arr];
+console.log(arr2);
+//creating a new menu for the restaurant
+const newMenue = ["Roti", `sabzi`, ...restaurant.mainMenu];
+console.log(...newMenue);
+//copy array
+const mainMenuCopy = [...newMenue];
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+//spread operator works on all iterables i.e arrays, strings, maps,sets
+//use spread operator when building an array or passing arguments into a function
+
+//real world example
+// const ingredents = [
+//   prompt(`let's make some pasta!! ingredent 1? :`),
+//   prompt(`let's make some pasta!! ingredent 2? :`),
+//   prompt(`let's make some pasta!! ingredent 3? :`),
+// ];
+//restaurant.orderPasta(...ingredents);
+
+//post ES 2018, spread operator also works on objects
+const newRestaurant = {
+  ...restaurant,
+  Founder: "Arman",
+  foundingYear: 1998,
+};
+console.log(newRestaurant);
+//creating a shallow copy using the spreadoperator
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "ZaikaIndiaKa";
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
+/*
 //topic: ------------------------------OBJECT DESTRUCTURING-----------------
 //while object destructuring we have to write the exact name of the property that we are destructuring, sequence of the property does not matter
 const { name, openingHours, categories } = restaurant;
@@ -80,8 +118,15 @@ const {
   fri: { open: OpeinigTime, close: closingTime },
 } = Timings;
 console.log(`friday timings ${OpeinigTime} ${closingTime}`);
-
-/*  
+//function 
+restaurant.orderDelivery({
+  orderTime: "22:30",
+  eta: Number(this.orderTime) + 30,
+  address: "ArjanGarh, Delhi 110047",
+  mainIndex: 2,
+  starterIndex: 1,
+});
+  
 topic:---------------------------destructuring arrays------------------------
 //destructuring array, destructuring assignment ']='
 const arr = [1, 2, 3, 4];
