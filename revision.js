@@ -48,6 +48,41 @@ const restaurant = {
 
 ////////////////////////////////////////////////////////////////////////
 
+// topic:---------- rest pattern-----------------------
+
+//while spread operator is used to unpac an array, rest pattern is used to pack elements into an array
+//SPREAD because on the right side of =
+const arry = [1, 2, ...[3, 4]];
+console.log(arry);
+//REST, beacuse on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, others);
+
+//rest pattern should always be the last in destructuring
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+const {
+  sat: { open: O, close: C },
+  ...weekdays
+} = restaurant.openingHours;
+console.log(O, C, weekdays);
+
+//function, usig rest pattern as rest arguments
+const add = function (...numbersToAdd) {
+  let sum = 0;
+  for (let i = 0; i < numbersToAdd.length; i++) {
+    sum = sum + numbersToAdd[i];
+  }
+  console.log(sum);
+};
+add(1, 2, 3, 4);
+add(4, 5, 6, 7, 8, 9);
+const x = [23, 5, 7];
+add(...x);
+/*
 //topic:--------------spread opreator-------------------
 //swapping prac
 let a = 13;
@@ -89,7 +124,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = "ZaikaIndiaKa";
 console.log(restaurant.name);
 console.log(restaurantCopy.name);
-/*
+
 //topic: ------------------------------OBJECT DESTRUCTURING-----------------
 //while object destructuring we have to write the exact name of the property that we are destructuring, sequence of the property does not matter
 const { name, openingHours, categories } = restaurant;
