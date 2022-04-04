@@ -25,7 +25,6 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  //here the sequence of parameter does not matter as we are destructuting an object, use this type of function when you have a lot of parameters
   orderDelivery: function ({
     starterIndex,
     mainIndex,
@@ -46,8 +45,61 @@ const restaurant = {
   },
 };
 
+// inorder
+class Node {
+  constructor(value) {
+    this.val = value;
+    this.leftChild = null;
+    this.rightChild = null;
+  }
+}
+
+class binary_tree {
+  constructor(rootValue) {
+    this.root = new Node(rootValue);
+  }
+
+  insert(currentNode, newValue) {
+    if (currentNode === null) {
+      currentNode = new Node(newValue);
+    } else if (newValue < currentNode.val) {
+      currentNode.leftChild = this.insert(currentNode.leftChild, newValue);
+    } else {
+      currentNode.rightChild = this.insert(currentNode.rightChild, newValue);
+    }
+    return currentNode;
+  }
+  insertBST(newValue) {
+    if (this.root == null) {
+      this.root = new Node(newValue);
+      return;
+    }
+    this.insert(this.root, newValue);
+  }
+
+  inOrderPrint(currentNode) {
+    //   console.log("current");
+    if (currentNode == null) return;
+
+    //    if (currentNode !== null) {
+    this.inOrderPrint(currentNode.leftChild);
+    console.log(currentNode.val);
+    this.inOrderPrint(currentNode.rightChild);
+  }
+}
+
+var BST = new binary_tree(1);
+//console.log("The root val for BST : ", BST.root.val);
+BST.insertBST(2);
+BST.insertBST(3);
+
+BST.inOrderPrint(BST.root);
+
 ////////////////////////////////////////////////////////////////////////
 
+// topic:---------- short circuiting------------------
+//console.log(23 || true);
+/*
 // topic:---------- rest pattern-----------------------
 
 //while spread operator is used to unpac an array, rest pattern is used to pack elements into an array
@@ -78,11 +130,14 @@ const add = function (...numbersToAdd) {
   }
   console.log(sum);
 };
+
 add(1, 2, 3, 4);
 add(4, 5, 6, 7, 8, 9);
+
 const x = [23, 5, 7];
+//here array x is being spread
 add(...x);
-/*
+
 //topic:--------------spread opreator-------------------
 //swapping prac
 let a = 13;
