@@ -45,57 +45,7 @@ const restaurant = {
   },
 };
 
-// inorder
-class Node {
-  constructor(value) {
-    this.val = value;
-    this.leftChild = null;
-    this.rightChild = null;
-  }
-}
-
-class binary_tree {
-  constructor(rootValue) {
-    this.root = new Node(rootValue);
-  }
-
-  insert(currentNode, newValue) {
-    if (currentNode === null) {
-      currentNode = new Node(newValue);
-    } else if (newValue < currentNode.val) {
-      currentNode.leftChild = this.insert(currentNode.leftChild, newValue);
-    } else {
-      currentNode.rightChild = this.insert(currentNode.rightChild, newValue);
-    }
-    return currentNode;
-  }
-  insertBST(newValue) {
-    if (this.root == null) {
-      this.root = new Node(newValue);
-      return;
-    }
-    this.insert(this.root, newValue);
-  }
-
-  inOrderPrint(currentNode) {
-    //   console.log("current");
-    if (currentNode == null) return;
-
-    //    if (currentNode !== null) {
-    this.inOrderPrint(currentNode.leftChild);
-    console.log(currentNode.val);
-    this.inOrderPrint(currentNode.rightChild);
-  }
-}
-
-var BST = new binary_tree(1);
-//console.log("The root val for BST : ", BST.root.val);
-BST.insertBST(2);
-BST.insertBST(3);
-
-BST.inOrderPrint(BST.root);
-
-////////////////////////////////////////////////////////////////////////
+console.log("It's better to be a warrior in a garden than a gardner in a war");
 
 // topic:---------- short circuiting------------------
 //console.log(23 || true);
