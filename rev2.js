@@ -24,3 +24,20 @@ john_bmi = BMI(john_height, john_mass);
 // better way of comparision
 const markHigherBMI = mark_bmi > john_bmi;
 console.log(markHigherBMI);
+
+// adding a good message with the final results
+if (mark_bmi > john_bmi) {
+  console.log(
+    `Mark's BMi of (${mark_bmi}) is higher than Jonh's BMI of (${john_bmi}) with a difference of (${
+      mark_bmi - john_bmi
+    })`
+  );
+} else if (john_bmi > mark_bmi) {
+  console.log(
+    `John's BMI of (${john_bmi}) is greater than marks BMI of (${mark_bmi}), with a difference of (${
+      john_bmi - mark_bmi
+    })`
+  );
+} else if (john_bmi == mark_bmi) {
+  console.log(`both mark and john have the same BMI of (${john_bmi})`);
+}
