@@ -1,5 +1,11 @@
 "use strict";
 
+const firstName = "Arman";
+const job = "Vp tech";
+const description = `My name is ${firstName} and I work as a ${job}`;
+console.log(description);
+
+// ------------------------------------------------------
 // Mark info : height and weight
 const markHeight = 169;
 const markWeight = 78;
