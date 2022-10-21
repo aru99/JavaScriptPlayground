@@ -3,8 +3,6 @@
 const dolphinScores = [96, 108, 89];
 const koalaScore = [88, 81, 110];
 
-let averageScoreDolphin, averageScoreKoala;
-
 const averageScore = function (arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -13,7 +11,17 @@ const averageScore = function (arr) {
   return sum / arr.length;
 };
 
-console.log(averageScore(dolphinScores));
+if (averageScore(dolphinScores) > averageScore(koalaScore)) {
+  console.log(
+    `Dophins with an average score of ${averageScore(dolphinScores)} wins `
+  );
+} else if (averageScore(koalaScore) > averageScore(dolphinScores)) {
+  console.log(
+    `Koalas with an average score of ${averageScore(koalaScore)} wins `
+  );
+} else if (averageScore(koalaScore) === averageScore(dolphinScores)) {
+  console.log(`draw`);
+}
 
 // const firstName = "Arman";
 // const job = "Vp tech";
