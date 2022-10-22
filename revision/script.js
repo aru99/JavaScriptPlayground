@@ -1,5 +1,20 @@
 "use strict";
 
+/*
+todo: make a tip calculator
+*/
+
+const billValue = 275;
+const tipValue =
+  billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
+console.log(`The tip value is ${tipValue}`);
+console.log(
+  `The bill was ${billValue}, the tip was ${tipValue} annd the total bill amount is ${
+    billValue + tipValue
+  }`
+);
+
+/*
 const dolphinScores = [100, 100, 100];
 const koalaScore = [88, 81, 110];
 
@@ -31,7 +46,7 @@ if (
 ) {
   console.log(`draw`);
 }
-
+*/
 // const firstName = "Arman";
 // const job = "Vp tech";
 // const description = `My name is ${firstName} and I work as a ${job}`;
