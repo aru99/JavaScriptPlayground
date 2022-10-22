@@ -1,5 +1,35 @@
 "use strict";
 
+const bills = [125, 555, 44];
+const tips = [];
+const totalAmountValue = [];
+const calcTip = function (billarr) {
+  let tip = 0;
+  for (let i = 0; i < billarr.length; i++) {
+    tip =
+      billarr[i] >= 50 && billarr[i] <= 300
+        ? billarr[i] * 0.15
+        : billarr[i] * 0.2;
+    tips.push(tip);
+    console.log(tip);
+  }
+};
+
+const totalValue = (arr1, arr2) => {
+  if (arr1.length === arr2.length) {
+    for (let i = 0; i < arr1.length; i++) {
+      totalAmountValue.push(arr1[i] + arr2[i]);
+      console.log(totalAmountValue);
+    }
+  } else {
+    console.log(`'bill and tips values don't align`);
+  }
+};
+
+calcTip(bills);
+totalValue(bills, tips);
+
+/*
 const dolphinScores = [44, 23, 71];
 const koalaScores = [65, 54, 49];
 
@@ -20,7 +50,7 @@ const checkWinner = function (avgScore1, avgScore2) {
 
 checkWinner(calcAverage(dolphinScores), calcAverage(koalaScores));
 
-/*
+
 todo: make a tip calculator
 
 
