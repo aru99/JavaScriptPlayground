@@ -1,8 +1,28 @@
 "use strict";
 
+const dolphinScores = [44, 23, 71];
+const koalaScores = [65, 54, 49];
+
+const calcAverage = (scores) => {
+  let sum = 0;
+  for (let i = 0; i < scores.length; i++) {
+    sum = sum + scores[i];
+  }
+
+  return sum / scores.length;
+};
+
+const checkWinner = function (avgScore1, avgScore2) {
+  avgScore1 > avgScore2
+    ? console.log(`Dolphins win (${avgScore1} vs ${avgScore2})`)
+    : console.log(`Koalas win (${avgScore2} vs ${avgScore1}) `);
+};
+
+checkWinner(calcAverage(dolphinScores), calcAverage(koalaScores));
+
 /*
 todo: make a tip calculator
-*/
+
 
 const billValue = 275;
 const tipValue =
@@ -14,6 +34,7 @@ console.log(
   }`
 );
 
+*/
 /*
 const dolphinScores = [100, 100, 100];
 const koalaScore = [88, 81, 110];
