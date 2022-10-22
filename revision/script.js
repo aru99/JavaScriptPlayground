@@ -1,6 +1,6 @@
 "use strict";
 
-const dolphinScores = [96, 108, 89];
+const dolphinScores = [100, 100, 100];
 const koalaScore = [88, 81, 110];
 
 const averageScore = function (arr) {
@@ -11,15 +11,24 @@ const averageScore = function (arr) {
   return sum / arr.length;
 };
 
-if (averageScore(dolphinScores) > averageScore(koalaScore)) {
+if (
+  averageScore(dolphinScores) > averageScore(koalaScore) &&
+  averageScore(dolphinScores) >= 100
+) {
   console.log(
     `Dophins with an average score of ${averageScore(dolphinScores)} wins `
   );
-} else if (averageScore(koalaScore) > averageScore(dolphinScores)) {
+} else if (
+  averageScore(koalaScore) > averageScore(dolphinScores) &&
+  averageScore(koalaScore) >= 100
+) {
   console.log(
     `Koalas with an average score of ${averageScore(koalaScore)} wins `
   );
-} else if (averageScore(koalaScore) === averageScore(dolphinScores)) {
+} else if (
+  averageScore(koalaScore) === averageScore(dolphinScores) &&
+  (averageScore(dolphinScores) === averageScore(koalaScore)) === 100
+) {
   console.log(`draw`);
 }
 
