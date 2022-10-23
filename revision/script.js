@@ -27,7 +27,7 @@ let message =
     ? `${mark.firstName} has a higher Bmi of ${mark.calcBmi()} than ${
         john.firstName
       } with a bmi of ${john.calcBmi()}`
-    : `${john.firstName} has a higher Bmi of ${john.calcBmi()} than ${
+    : `${john.firstName} has a higher Bmi of  ${john.calcBmi()} than ${
         mark.firstName
       } with a bmi of ${mark.calcBmi}`;
 console.log(message);
