@@ -1,5 +1,38 @@
 "use strict";
 
+const mark = {
+  firstName: `Mark`,
+  lastName: `Smith`,
+  // fullName: this.firstName + " " + this.lastName,
+  mass: 78,
+  height: 169,
+  calcBmi: function () {
+    return this.mass / this.height ** 2;
+  },
+};
+
+const john = {
+  firstName: `John`,
+  lastName: `Miller`,
+  // fullName: `${this.firstName} ${this.lastName}`,
+  mass: 92,
+  height: 195,
+  calcBmi: function () {
+    return this.mass / this.height ** 2;
+  },
+};
+
+let message =
+  mark.calcBmi() > john.calcBmi()
+    ? `${mark.firstName} has a higher Bmi of ${mark.calcBmi()} than ${
+        john.firstName
+      } with a bmi of ${john.calcBmi()}`
+    : `${john.firstName} has a higher Bmi of ${john.calcBmi()} than ${
+        mark.firstName
+      } with a bmi of ${mark.calcBmi}`;
+console.log(message);
+
+/*
 const bills = [125, 555, 44];
 const tips = [];
 const totalAmountValue = [];
@@ -29,7 +62,7 @@ const totalValue = (arr1, arr2) => {
 calcTip(bills);
 totalValue(bills, tips);
 
-/*
+
 const dolphinScores = [44, 23, 71];
 const koalaScores = [65, 54, 49];
 
