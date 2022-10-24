@@ -14,6 +14,7 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+// opening modal
 for (let i = 0; i < btnsOpenModal.length; i++) {
   btnsOpenModal[i].addEventListener('click', openModal);
 }
@@ -21,3 +22,9 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 // closing modal
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
+});
