@@ -7,9 +7,10 @@
 
 // document.querySelector('.guess').value = 23;
 
+// variables
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-
+let highScore = 0;
 //------------------EventListener for Playing the game------------------
 document.querySelector('.check').addEventListener('click', function () {
   //converting the retrieved user input to number
@@ -26,6 +27,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = '#60b437';
     document.querySelector('.number').style.width = '30rem';
+
+    // highscore
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
   }
   //   when guess is too high
   else if (guess > secretNumber) {
