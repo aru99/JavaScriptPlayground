@@ -7,7 +7,7 @@
 
 // document.querySelector('.guess').value = 23;
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 
 //------------------EventListener for Playing the game------------------
@@ -54,8 +54,10 @@ document.querySelector('.check').addEventListener('click', function () {
 //------------------Eventlistener for Resetting the game------------------
 
 document.querySelector('.again').addEventListener('click', function () {
-  // Hide Secret number and reset width
+  // Hide & reset Secret number and reset width
   document.querySelector('.number').textContent = '?';
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
   document.querySelector('.number').style.width = `15rem`;
   // remove value from the input field
   document.querySelector('.guess').value = '';
