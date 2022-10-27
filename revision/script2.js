@@ -7,31 +7,56 @@ const restaurant = {
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-//   opening hours
-openingHours : {
-thu : {
-    open:12,
-    close 22,
-},
-fri : {
-    open:11,
-    close 23,
-},
-sat : {
-    open:0, // Open 24hrs
-    close 24,
-},
-},
+  //   opening hours
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24hrs
+      close: 24,
+    },
+  },
 
   //   function to order food
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  delivery: function ({ starterIndex, mainIndex, address, time }) {
+    console.log(
+      `${this.starterMenu[starterIndex]} & ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
 
+restaurant.delivery({
+  time: 2200,
+  address: `house number 75, ghoda mohalla`,
+  starterIndex: 2,
+  mainIndex: 0,
+});
+
 //Destructuring objects
-
-
+const {
+  // property in the object : newVariable name
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+// default values
+const { menu = [], starterMenu: starter = [] } = restaurant;
+console.log(menu, starter);
+// nested objects
+const {
+  fri: { open: openOnFri, close: clsoeOnFri },
+} = hours;
+console.log(openOnFri, clsoeOnFri);
 
 /** 
 //Destructuring Arrays
