@@ -2,6 +2,7 @@
 
 const restaurant = {
   name: "Classico Italiano",
+  chefs:['carillio', 'uzbek', 'samantha']
   location: "Via Angelo Tavanti 23, Firenze, Italy",
   categories: ["Italian", "Pizzeria", "Vegetarian", "organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
