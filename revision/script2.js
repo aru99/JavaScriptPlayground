@@ -2,7 +2,7 @@
 
 const restaurant = {
   name: "Classico Italiano",
-  chefs:['carillio', 'uzbek', 'samantha']
+  chefs: ["carillio", "uzbek", "samantha"],
   location: "Via Angelo Tavanti 23, Firenze, Italy",
   categories: ["Italian", "Pizzeria", "Vegetarian", "organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
@@ -42,6 +42,12 @@ restaurant.delivery({
   mainIndex: 0,
 });
 
+// spread operator
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+/**
+
 //Destructuring objects
 const {
   // property in the object : newVariable name
@@ -59,7 +65,7 @@ const {
 } = hours;
 console.log(openOnFri, clsoeOnFri);
 
-/** 
+ 
 //Destructuring Arrays
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
