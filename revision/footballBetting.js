@@ -50,7 +50,9 @@ const [gk, ...fieldPlayers] = players1;
 // all players array
 const allPlayers = [...game.players];
 // players plus substitute
+const player1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
 console.log(`Players 1 : ${players1} 
 Players2 : ${players2}
 Goal Keeper and rest players : ${gk} and ${fieldPlayers}
-All players : ${allPlayers}`);
+All players : ${allPlayers}
+Players1Final : ${player1Final}`);
