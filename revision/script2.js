@@ -39,6 +39,30 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: "capri",
+  numGuest: 0,
+};
+const rest2 = {
+  name: "karims",
+  owner: "sahid",
+};
+
+// Or assignment operator
+// rest1.numGuest = rest1.numGuest || 10;
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 30;
+// rest2.numGuest = rest2.numGuest || 10;
+// NULLISH assignment operator
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 20;
+console.log(rest1, rest2);
+// AND assignment operator
+rest1.owner &&= "********";
+rest2.owner &&= "******";
+console.log(rest1, rest2);
+console.log();
+/**
 // --------------REST PATTERN
 
 // fullmenue
@@ -61,7 +85,7 @@ const add = function (...numbers) {
 };
 
 add(1, 2, 3, 4, 5, 6, 7, 8);
-/**
+
  * 
  * // spread operator
 const ingredients = [
