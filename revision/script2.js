@@ -39,6 +39,31 @@ const restaurant = {
   },
 };
 
+// --------------REST PATTERN
+
+// fullmenue
+const [...fullMenue] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(fullMenue);
+// weekend and weekdays timings
+const { sat: weekend, ...weekdays } = restaurant.openingHours;
+console.log(weekend, weekdays);
+
+// rest parameters
+const add = function (...numbers) {
+  console.log(...numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    console.log(sum);
+  }
+
+  console.log(`final sum of numbers : ${sum}`);
+};
+
+add(1, 2, 3, 4, 5, 6, 7, 8);
+/**
+ * 
+ * // spread operator
 const ingredients = [
   prompt("Let's make pasta !! Ingredient 1"),
   prompt("Ingredient 2"),
@@ -54,11 +79,11 @@ restaurant.delivery({
   mainIndex: 0,
 });
 
-// spread operator
+
 const newMenu = [...restaurant.mainMenu, "Gnocci"];
 console.log(newMenu);
 
-/**
+
 
 //Destructuring objects
 const {
