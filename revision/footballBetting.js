@@ -57,15 +57,15 @@ const {
 } = game;
 // printGoals function
 const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
+  //   console.log(`${players.length} goals were scored`);
 };
 
 printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 printGoals("Lewandowski", "Kimmich");
 printGoals(...game.scored);
 // wining logic without ternary or if statements
-team1 < team2 && console.log("Team 2 is more likely to win ");
-team2 < team1 && console.log("Team1 is more likely to win");
+// team1 < team2 && console.log("Team 2 is more likely to win ");
+// team2 < team1 && console.log("Team1 is more likely to win");
 // console.log(
 //   `Players 1 : ${players1}
 // Players2 : ${players2}
@@ -76,3 +76,10 @@ team2 < team1 && console.log("Team1 is more likely to win");
 //   draw,
 //   team2
 // );
+
+// ----------------CC2---------------------
+
+// looping over game.scored
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1} : ${player}`);
+}
