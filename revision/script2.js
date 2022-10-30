@@ -28,12 +28,24 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  //   function for delivery
   delivery: function ({ starterIndex, mainIndex, address, time }) {
     console.log(
       `${this.starterMenu[starterIndex]} & ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`you have ordered pasta with : ${ing1}, ${ing2} & ${ing3}`);
+  },
 };
+
+const ingredients = [
+  prompt("Let's make pasta !! Ingredient 1"),
+  prompt("Ingredient 2"),
+  prompt("Ingredient 3"),
+];
+
+restaurant.orderPasta(...ingredients);
 
 restaurant.delivery({
   time: 2200,
