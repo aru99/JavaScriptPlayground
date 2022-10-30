@@ -1,16 +1,17 @@
 "use strict";
 
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 //   opening hours
-const hours = {
-  thu: {
+const openingHours = {
+  [weekdays[3]]: {
     open: 12,
     close: 22,
   },
-  fri: {
+  [weekdays[4]]: {
     open: 11,
     close: 23,
   },
-  sat: {
+  [weekdays[5]]: {
     open: 0, // Open 24hrs
     close: 24,
   },
@@ -24,8 +25,8 @@ const restaurant = {
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-  //   hours
-  hours,
+  //   openingHours
+  openingHours,
 
   //   function to order food
   order(starterIndex, mainIndex) {
@@ -42,6 +43,13 @@ const restaurant = {
   },
 };
 
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+/**
 const rest1 = {
   name: "capri",
   numGuest: 0,
@@ -53,7 +61,6 @@ const rest2 = {
 
 console.log(restaurant);
 
-/**
 const fullMenue = [...restaurant.mainMenu, ...restaurant.starterMenu];
 for (const [i, el] of fullMenue.entries()) {
   console.log(`${i + 1} : ${el}`);
