@@ -43,13 +43,31 @@ const restaurant = {
   },
 };
 
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = `we are open on ${properties.length} days : `;
+console.log(openStr);
+for (const day of properties) {
+  openStr += `${day} `;
+}
+console.log(openStr);
+// property values
+const values = Object.values(openingHours);
+console.log(values);
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+for (const [key, { open, close }] of entries) {
+  console.log(`on ${key} we open at ${open} and close at ${close}`);
+}
+/**
 const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? "closed";
   console.log(`On ${day}, we open at ${open}`);
 }
 
-/**
+
 const rest1 = {
   name: "capri",
   numGuest: 0,
