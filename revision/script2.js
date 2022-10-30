@@ -48,6 +48,13 @@ const rest2 = {
   owner: "sahid",
 };
 
+const fullMenue = [...restaurant.mainMenu, ...restaurant.starterMenu];
+for (const [i, el] of fullMenue.entries()) {
+  console.log(`${i + 1} : ${el}`);
+}
+
+/**
+ 
 // Or assignment operator
 // rest1.numGuest = rest1.numGuest || 10;
 // rest1.numGuest ||= 10;
@@ -62,7 +69,6 @@ rest1.owner &&= "********";
 rest2.owner &&= "******";
 console.log(rest1, rest2);
 console.log();
-/**
 // --------------REST PATTERN
 
 // fullmenue
