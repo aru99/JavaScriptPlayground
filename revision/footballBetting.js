@@ -41,3 +41,16 @@ const game = {
     team2: 6.5,
   },
 };
+
+// players array
+const players1 = [...game.players[0]];
+const players2 = [...game.players[1]];
+// Goal Keeper and all players
+const [gk, ...fieldPlayers] = players1;
+// all players array
+const allPlayers = [...game.players];
+// players plus substitute
+console.log(`Players 1 : ${players1} 
+Players2 : ${players2}
+Goal Keeper and rest players : ${gk} and ${fieldPlayers}
+All players : ${allPlayers}`);
