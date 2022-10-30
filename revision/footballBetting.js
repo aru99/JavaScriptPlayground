@@ -55,6 +55,15 @@ const player1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
 const {
   odds: { team1, x: draw, team2 },
 } = game;
+// printGoals function
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+
+printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
+printGoals("Lewandowski", "Kimmich");
+printGoals(...game.scored);
+
 console.log(
   `Players 1 : ${players1} 
 Players2 : ${players2}
