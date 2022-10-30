@@ -83,3 +83,12 @@ printGoals(...game.scored);
 for (const [i, player] of game.scored.entries()) {
   console.log(`Goal ${i + 1} : ${player}`);
 }
+
+let sum = 0;
+
+for (const value of Object.values(game.odds)) {
+  sum += value;
+}
+
+const average = sum / Object.keys(game.odds).length;
+console.log(`The average odd is : ${average}`);
