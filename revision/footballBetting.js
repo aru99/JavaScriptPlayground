@@ -66,13 +66,13 @@ printGoals(...game.scored);
 // wining logic without ternary or if statements
 team1 < team2 && console.log("Team 2 is more likely to win ");
 team2 < team1 && console.log("Team1 is more likely to win");
-console.log(
-  `Players 1 : ${players1} 
-Players2 : ${players2}
-Goal Keeper and rest players : ${gk} and ${fieldPlayers}
-All players : ${allPlayers}
-Players1Final : ${player1Final}`,
-  team1,
-  draw,
-  team2
-);
+// console.log(
+//   `Players 1 : ${players1}
+// Players2 : ${players2}
+// Goal Keeper and rest players : ${gk} and ${fieldPlayers}
+// All players : ${allPlayers}
+// Players1Final : ${player1Final}`,
+//   team1,
+//   draw,
+//   team2
+// );
