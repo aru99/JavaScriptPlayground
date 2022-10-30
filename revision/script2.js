@@ -1,5 +1,21 @@
 "use strict";
 
+//   opening hours
+const hours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24hrs
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: "Classico Italiano",
   chefs: ["carillio", "uzbek", "samantha"],
@@ -8,33 +24,20 @@ const restaurant = {
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-  //   opening hours
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24hrs
-      close: 24,
-    },
-  },
+  //   hours
+  hours,
 
   //   function to order food
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
   //   function for delivery
-  delivery: function ({ starterIndex, mainIndex, address, time }) {
+  delivery({ starterIndex, mainIndex, address, time }) {
     console.log(
       `${this.starterMenu[starterIndex]} & ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`you have ordered pasta with : ${ing1}, ${ing2} & ${ing3}`);
   },
 };
@@ -48,12 +51,15 @@ const rest2 = {
   owner: "sahid",
 };
 
+console.log(restaurant);
+
+/**
 const fullMenue = [...restaurant.mainMenu, ...restaurant.starterMenu];
 for (const [i, el] of fullMenue.entries()) {
   console.log(`${i + 1} : ${el}`);
 }
 
-/**
+
  
 // Or assignment operator
 // rest1.numGuest = rest1.numGuest || 10;
