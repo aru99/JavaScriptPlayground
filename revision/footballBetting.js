@@ -63,7 +63,9 @@ const printGoals = function (...players) {
 printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 printGoals("Lewandowski", "Kimmich");
 printGoals(...game.scored);
-
+// wining logic without ternary or if statements
+team1 < team2 && console.log("Team 2 is more likely to win ");
+team2 < team1 && console.log("Team1 is more likely to win");
 console.log(
   `Players 1 : ${players1} 
 Players2 : ${players2}
