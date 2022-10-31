@@ -43,6 +43,28 @@ const restaurant = {
   },
 };
 
+// maps
+const dhoopChaav = new Map();
+dhoopChaav
+  .set("Founders", "Kriti Jain & Mohammad Arman")
+  .set("FoundedIn", "2023")
+  .set("open", 10)
+  .set("close", 21)
+  .set(true, "we are open!!")
+  .set(false, "We are resting right now, zZZ");
+
+console.log(dhoopChaav);
+const time = 20;
+console.log(
+  dhoopChaav.get(
+    dhoopChaav.get("open") < time && dhoopChaav.get("close") > time
+  )
+);
+
+// sets
+console.log(new Set(`mohammadarman`).size);
+
+/**
 const properties = Object.keys(openingHours);
 console.log(properties);
 let openStr = `we are open on ${properties.length} days : `;
@@ -60,7 +82,7 @@ console.log(entries);
 for (const [key, { open, close }] of entries) {
   console.log(`on ${key} we open at ${open} and close at ${close}`);
 }
-/**
+
 const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? "closed";
