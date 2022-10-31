@@ -30,6 +30,17 @@ const gameEvents = new Map([
 // 1
 const events = new Set(gameEvents.values());
 console.log(events);
+// 2
 gameEvents.delete(64);
 console.log(gameEvents);
+// 3
 console.log(`An event happend every ${90 / gameEvents.size} minutes`);
+// 4
+for (const [time, events] of gameEvents) {
+  //   console.log(time, events);
+  let message =
+    time < 45
+      ? `[First Half] ${time} :${events}`
+      : `[Second Half] ${time} : ${events}`;
+  console.log(message);
+}
