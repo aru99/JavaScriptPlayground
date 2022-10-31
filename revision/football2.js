@@ -30,3 +30,6 @@ const gameEvents = new Map([
 // 1
 const events = new Set(gameEvents.values());
 console.log(events);
+gameEvents.delete(64);
+console.log(gameEvents);
+console.log(`An event happend every ${90 / gameEvents.size} minutes`);
