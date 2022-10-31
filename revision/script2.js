@@ -44,6 +44,14 @@ const restaurant = {
 };
 
 // maps
+
+// converting object into map
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+const hoursArry = [...hoursMap];
+console.log(hoursArry);
+
+/**
 const dhoopChaav = new Map();
 dhoopChaav
   .set("Founders", "Kriti Jain & Mohammad Arman")
@@ -64,7 +72,7 @@ console.log(
 // sets
 console.log(new Set(`mohammadarman`).size);
 
-/**
+
 const properties = Object.keys(openingHours);
 console.log(properties);
 let openStr = `we are open on ${properties.length} days : `;
