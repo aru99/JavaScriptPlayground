@@ -94,5 +94,6 @@ console.log(`The average odd is : ${average}`);
 
 // printing the three odds
 for (const [key, value] of Object.entries(game.odds)) {
-  console.log(`odd of victory  ${game[key] || "draw"} : ${value}`);
+  const teamStr = key === `x` ? "draw" : `victory ${game[key]}`;
+  console.log(`odd of ${teamStr} : ${value}`);
 }
