@@ -72,6 +72,17 @@ console.log(checkSeat("10A"));
 console.log(checkSeat("02C"));
 const announcement = `All passangers  come to the boarding door 23, boarding door 23`;
 console.log(announcement.replaceAll("door", "gate"));
+
+// name capitalisation function
+const capitaliseName = function (userInputName) {
+  const name = userInputName.toLowerCase().split(" ");
+  const upperName = [];
+  for (const n of name) {
+    upperName.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(upperName.join(" "));
+};
+capitaliseName("jessica ann smith davis");
 /**
 // maps
 
