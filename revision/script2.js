@@ -70,7 +70,8 @@ console.log(checkSeat("11B"));
 console.log(checkSeat("12E"));
 console.log(checkSeat("10A"));
 console.log(checkSeat("02C"));
-
+const announcement = `All passangers  come to the boarding door 23, boarding door 23`;
+console.log(announcement.replaceAll("door", "gate"));
 /**
 // maps
 
