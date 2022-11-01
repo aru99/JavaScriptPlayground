@@ -49,6 +49,27 @@ const airLines = "Air India Indigo";
 const plane = "A380";
 
 console.log(plane[0]);
+// creating a function that recieves seat number and returns if it's a middle seat or not
+const checkSeat = function (seatNumber) {
+  // B and E are middle seat
+  const seatAlphabet = seatNumber.slice(-1);
+  console.log(seatAlphabet);
+  return seatAlphabet === "B" || seatAlphabet === "E"
+    ? `you have a Middle seat ${seatNumber}`
+    : `You don't have a middle seat ${seatNumber}`;
+
+  // below code is unoptimised
+  //   if (seatAlphabet === "B" || seatAlphabet === "E") {
+  //     return `you have a Middle seat ${seatNumber}`;
+  //   } else {
+  //     return `You don't have a middle seat ${seatNumber}`;
+  //   }
+};
+
+console.log(checkSeat("11B"));
+console.log(checkSeat("12E"));
+console.log(checkSeat("10A"));
+console.log(checkSeat("02C"));
 
 /**
 // maps
