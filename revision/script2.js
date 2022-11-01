@@ -43,6 +43,14 @@ const restaurant = {
   },
 };
 
+// Airplanes
+
+const airLines = "Air India Indigo";
+const plane = "A380";
+
+console.log(plane[0]);
+
+/**
 // maps
 
 // converting object into map
@@ -51,7 +59,6 @@ console.log(hoursMap);
 const hoursArry = [...hoursMap];
 console.log(hoursArry);
 
-/**
 const dhoopChaav = new Map();
 dhoopChaav
   .set("Founders", "Kriti Jain & Mohammad Arman")
