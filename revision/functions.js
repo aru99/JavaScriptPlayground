@@ -4,6 +4,20 @@ const oneWord = function (str) {
   return str.replaceAll(" ", "").toLowerCase();
 };
 
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
+};
+
+//HOF
+const transformer = function (str, fn) {
+  console.log(`Original String : ${str}`);
+  console.log(`Transformed String : ${fn(str)}`);
+  console.log(`Transformed by : ${fn.name}`);
+};
+
+transformer("Java script is the best ", upperFirstWord);
+transformer("HTML is not a programming language", oneWord);
 /**
  * 
  const bookings = [];
