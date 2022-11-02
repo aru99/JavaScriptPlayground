@@ -1,5 +1,30 @@
 "use strict";
 
+const lufthansa = {
+  name: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+};
+
+const euroWings = {
+  name: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = function (flightNum, name) {
+  console.log(
+    `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+  );
+  this.bookings.push({ flight: `${this.iataCode}${this.flightNum}`, name });
+};
+
+book.call(lufthansa, 239, "arman");
+book.call(euroWings, 345, "Rabbani");
+console.log(euroWings);
+console.log(lufthansa);
+
+/**
 const greet = (greeting) => {
   return (name) => {
     console.log(`${greeting} ${name}`);
@@ -7,7 +32,6 @@ const greet = (greeting) => {
 };
 
 greet("hey")("Arman");
-/**
 const oneWord = function (str) {
   return str.replaceAll(" ", "").toLowerCase();
 };
