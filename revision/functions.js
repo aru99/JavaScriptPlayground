@@ -1,5 +1,13 @@
 "use strict";
 
+const greet = (greeting) => {
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+greet("hey")("Arman");
+/**
 const oneWord = function (str) {
   return str.replaceAll(" ", "").toLowerCase();
 };
@@ -18,7 +26,6 @@ const transformer = function (str, fn) {
 
 transformer("Java script is the best ", upperFirstWord);
 transformer("HTML is not a programming language", oneWord);
-/**
  * 
  const bookings = [];
  
