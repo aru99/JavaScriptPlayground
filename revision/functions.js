@@ -1,13 +1,13 @@
 "use strict";
 
 const lufthansa = {
-  name: "Lufthansa",
+  airline: "Lufthansa",
   iataCode: "LH",
   bookings: [],
 };
 
 const euroWings = {
-  name: "Eurowings",
+  airline: "Eurowings",
   iataCode: "EW",
   bookings: [],
 };
@@ -19,11 +19,26 @@ const book = function (flightNum, name) {
   this.bookings.push({ flight: `${this.iataCode}${this.flightNum}`, name });
 };
 
+// using the call method of setting this keyword
 book.call(lufthansa, 239, "arman");
 book.call(euroWings, 345, "Rabbani");
 console.log(euroWings);
 console.log(lufthansa);
-
+// using the bind method of setting this keyword
+const bookEW = book.bind(euroWings);
+bookEW(1337, "kriti");
+console.log(euroWings);
+//using bind method with Event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+//
+document
+  .querySelector(".buy")
+  .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
 /**
 const greet = (greeting) => {
   return (name) => {
