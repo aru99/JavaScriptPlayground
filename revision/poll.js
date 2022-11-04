@@ -27,6 +27,7 @@ const poll = {
       console.log(this.answers);
     } else if (type === "string") {
       console.log(`Poll results are ${this.answers.join(", ")}`);
+      console.log(`Fuck everyone, grind and get shit done`);
     }
   },
 };
