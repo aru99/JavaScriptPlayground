@@ -28,6 +28,7 @@ const poll = {
     } else if (type === "string") {
       console.log(`Poll results are ${this.answers.join(", ")}`);
       console.log(`Fuck everyone, grind and get shit done`);
+      console.log(`being a lone wolf is better than being in the wrong pack`);
     }
   },
 };
