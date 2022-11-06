@@ -29,6 +29,7 @@ const poll = {
       console.log(`Poll results are ${this.answers.join(", ")}`);
       console.log(`Fuck everyone, grind and get shit done`);
       console.log(`being a lone wolf is better than being in the wrong pack`);
+      console.log("c5 complex");
     }
   },
 };
