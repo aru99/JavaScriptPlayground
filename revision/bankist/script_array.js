@@ -84,50 +84,50 @@ display_movements(account1.movements);
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ["USD", "United States dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound sterling"],
-]);
+// const currencies = new Map([
+//   ["USD", "United States dollar"],
+//   ["EUR", "Euro"],
+//   ["GBP", "Pound sterling"],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-let closingBalance = 0;
 
-// looping over the array using for of
-for (const movement of movements) {
-  if (movement > 0) {
-    closingBalance += movement;
-    console.log(`You deposited ${movement}, current balance ${closingBalance}`);
-  } else if (movement < 0) {
-    closingBalance -= movement;
-    console.log(
-      `You withdrew ${Math.abs(movement)}, current balance ${closingBalance}`
-    );
-  }
-}
+// let closingBalance = 0;
 
-console.log(`------FOR EACH------------`);
+// // looping over the array using for of
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     closingBalance += movement;
+//     console.log(`You deposited ${movement}, current balance ${closingBalance}`);
+//   } else if (movement < 0) {
+//     closingBalance -= movement;
+//     console.log(
+//       `You withdrew ${Math.abs(movement)}, current balance ${closingBalance}`
+//     );
+//   }
+// }
 
-movements.forEach(function (movement, index, arr) {
-  if (movement > 0) {
-    closingBalance += movement;
-    console.log(
-      ` transaction no : ${
-        index + 1
-      } of ::You deposited ${movement}, current balance ${closingBalance}`
-    );
-  } else if (movement < 0) {
-    closingBalance -= movement;
-    console.log(
-      `transaction no : ${index + 1} :: You withdrew ${Math.abs(
-        movement
-      )}, current balance ${closingBalance}`
-    );
-  }
-});
+// console.log(`------FOR EACH------------`);
+
+// movements.forEach(function (movement, index, arr) {
+//   if (movement > 0) {
+//     closingBalance += movement;
+//     console.log(
+//       ` transaction no : ${
+//         index + 1
+//       } of ::You deposited ${movement}, current balance ${closingBalance}`
+//     );
+//   } else if (movement < 0) {
+//     closingBalance -= movement;
+//     console.log(
+//       `transaction no : ${index + 1} :: You withdrew ${Math.abs(
+//         movement
+//       )}, current balance ${closingBalance}`
+//     );
+//   }
+// });
 
 // const currencies = new Map([
 //   ["USD", "United States dollar"],
@@ -135,4 +135,17 @@ movements.forEach(function (movement, index, arr) {
 //   ["GBP", "Pound sterling"],
 // ]);
 
-currencies.forEach(function (value, key, map) {});
+// MAP
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const euroToUsd = 1.1;
+// const movementsUSD = movements.map(function (mov) {
+//   return Math.trunc(mov * euroToUsd);
+// });
+
+const movementsUSD = movements.map((mov) => {
+  return Math.trunc(mov * euroToUsd);
+});
+
+console.log(movements);
+console.log(movementsUSD);
