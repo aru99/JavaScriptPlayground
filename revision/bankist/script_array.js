@@ -62,7 +62,7 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 // tansactions movements
-const display_movements = function (movements) {
+const displayMovements = function (movements) {
   containerMovements.innerHTML = " ";
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : `withdrawal`;
@@ -78,6 +78,16 @@ const display_movements = function (movements) {
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
+
+// calculating the total balance of the user
+const calcDisplayBalance = function (movements) {
+  const totalBalance = movements.reduce(function (acc, curr, i) {
+    return acc + curr;
+  }, 0);
+  labelBalance.textContent = `${totalBalance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
 // creating user names
 
 const createuserName = function (accs) {
@@ -92,9 +102,10 @@ const createuserName = function (accs) {
   });
 };
 
-display_movements(account1.movements);
+displayMovements(account1.movements);
 createuserName(accounts);
 console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -150,14 +161,26 @@ console.log(accounts);
 //   ["GBP", "Pound sterling"],
 // ]);
 
-// MAP
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// Reduce method
+const balance = movements.reduce(function (acc, curr, i, arr) {
+  acc += curr;
+  return acc;
+}, 0);
+console.log(balance);
+
+// MAP
 
 // Filter
 const deposits = movements.filter(function (mov) {
   return mov > 0;
 });
 console.log(deposits);
+const withdrawls = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(withdrawls);
 
 // const euroToUsd = 1.1;
 // const movementsUSD = movements.map(function (mov) {
