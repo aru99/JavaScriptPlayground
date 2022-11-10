@@ -23,3 +23,26 @@ const checkDogs = function (dogsjulia, dogskate) {
 };
 
 checkDogs(juliaArr, kateArr);
+
+// const juliaArr = [3, 5, 2, 12, 7];
+// const kateArr = [4, 1, 15, 8, 3];
+
+const calcAverageHumanAge = function (dogAgesArr) {
+  const dogAgeHumanYears = dogAgesArr.map(function (age) {
+    if (age <= 2) {
+      return 2 * age;
+    } else if (age > 2) {
+      return 16 + age * 4;
+    }
+  });
+  return dogAgeHumanYears
+    .filter(function (ages) {
+      return ages > 18;
+    })
+    .reduce(function (acc, curr, i, arr) {
+      acc += curr;
+      return Math.trunc(acc / arr.length);
+    }, 0);
+};
+
+console.log(juliaArr, calcAverageHumanAge(juliaArr));
