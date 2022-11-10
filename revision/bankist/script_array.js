@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+// tansactions movements
 const display_movements = function (movements) {
   containerMovements.innerHTML = " ";
   movements.forEach(function (mov, i) {
@@ -77,9 +78,22 @@ const display_movements = function (movements) {
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
+// creating user names
+
+const createuserName = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(" ")
+    .map(function (name) {
+      return name[0];
+    })
+    .join("");
+  return username;
+};
 
 display_movements(account1.movements);
-
+// console.log(createuserName("Steven Thomas Williams"));
+console.log(createuserName("Mohammad Arman"));
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -149,3 +163,15 @@ const movementsUSD = movements.map((mov) => {
 
 console.log(movements);
 console.log(movementsUSD);
+
+// "Steven Thomas Williams",
+
+// const user = `Steven Thomas Williams`;
+// const userName = user
+//   .toLowerCase()
+//   .split(" ")
+//   .map(function (name) {
+//     return name[0];
+//   })
+//   .join("");
+// console.log(userName);
