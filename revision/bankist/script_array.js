@@ -88,8 +88,24 @@ const calcDisplayBalance = function (movements) {
 };
 
 calcDisplayBalance(account1.movements);
-// creating user names
+// calculating the summary
+const calcDisplaySummary = function (movements) {
+  // income summary
+  const incomes = movements
+    .filter(function (mov) {
+      return mov > 0;
+    })
+    .reduce(function (acc, inmov, i, arr) {
+      console.log(arr);
+      acc += inmov;
+      return acc;
+    }, 0);
+  labelSumIn.textContent = `${incomes} EUR`;
+  // deposite ssummary
+};
 
+console.log(calcDisplaySummary(account1.movements));
+// creating user names
 const createuserName = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
