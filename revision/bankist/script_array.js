@@ -168,6 +168,14 @@ const balance = movements.reduce(function (acc, curr, i, arr) {
   return acc;
 }, 0);
 console.log(balance);
+// findint the largest transaction
+const macTransaction = movements.reduce(function (acc, curr) {
+  // return acc ? acc > curr : return curr;
+  if (acc > curr) return acc;
+  else return curr;
+}, movements[0]);
+
+console.log(macTransaction);
 
 // MAP
 
