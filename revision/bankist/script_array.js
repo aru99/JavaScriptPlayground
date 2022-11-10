@@ -80,20 +80,21 @@ const display_movements = function (movements) {
 };
 // creating user names
 
-const createuserName = function (user) {
-  const username = user
-    .toLowerCase()
-    .split(" ")
-    .map(function (name) {
-      return name[0];
-    })
-    .join("");
-  return username;
+const createuserName = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map(function (name) {
+        return name[0];
+      })
+      .join("");
+  });
 };
 
 display_movements(account1.movements);
-// console.log(createuserName("Steven Thomas Williams"));
-console.log(createuserName("Mohammad Arman"));
+createuserName(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -152,17 +153,23 @@ console.log(createuserName("Mohammad Arman"));
 // MAP
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const euroToUsd = 1.1;
+// Filter
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+
+// const euroToUsd = 1.1;
 // const movementsUSD = movements.map(function (mov) {
 //   return Math.trunc(mov * euroToUsd);
 // });
 
-const movementsUSD = movements.map((mov) => {
-  return Math.trunc(mov * euroToUsd);
-});
+// const movementsUSD = movements.map((mov) => {
+//   return Math.trunc(mov * euroToUsd);
+// });
 
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
 
 // "Steven Thomas Williams",
 
