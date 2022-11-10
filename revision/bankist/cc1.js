@@ -28,21 +28,25 @@ checkDogs(juliaArr, kateArr);
 // const kateArr = [4, 1, 15, 8, 3];
 
 const calcAverageHumanAge = function (dogAgesArr) {
-  const dogAgeHumanYears = dogAgesArr.map(function (age) {
-    if (age <= 2) {
-      return 2 * age;
-    } else if (age > 2) {
-      return 16 + age * 4;
-    }
-  });
-  return dogAgeHumanYears
-    .filter(function (ages) {
+  const dogAgeHumanYears = dogAgesArr
+    .map(function (age) {
+      if (age <= 2) {
+        return 2 * age;
+      } else if (age > 2) {
+        return 16 + age * 4;
+      }
+    })
+    .filter(function (ages, i, arr) {
+      console.log(arr);
       return ages > 18;
     })
     .reduce(function (acc, curr, i, arr) {
+      console.log(arr);
       acc += curr;
       return Math.trunc(acc / arr.length);
     }, 0);
+
+  return dogAgeHumanYears;
 };
 
 console.log(juliaArr, calcAverageHumanAge(juliaArr));
