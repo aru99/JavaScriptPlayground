@@ -80,11 +80,12 @@ const displayMovements = function (movements) {
 };
 
 // calculating the total balance of the user
-const calcDisplayBalance = function (movements) {
-  const totalBalance = movements.reduce(function (acc, curr, i) {
-    return acc + curr;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce(function (accu, curr, i) {
+    return accu + curr;
   }, 0);
-  labelBalance.textContent = `${totalBalance} EUR`;
+
+  labelBalance.textContent = `${acc.balance} EUR`;
 };
 
 // calculating the summary
@@ -147,12 +148,23 @@ const createuserName = function (accs) {
 
 createuserName(accounts);
 
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+};
+
 // =======================EVENT HANDLERS=====================
 
 // active account variable
 let currentAccount;
 
-// Login implementation
+// -----Login implementation----
 btnLogin.addEventListener("click", function (e) {
   // prevent form from submitting
   e.preventDefault();
@@ -171,17 +183,40 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginPin.value = inputLoginUsername.value = " ";
     inputLoginPin.blur();
 
-    // Display movements
-    displayMovements(currentAccount.movements);
-
-    // Display balance
-    calcDisplayBalance(currentAccount.movements);
-
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
     console.log(`login`);
   }
 });
+
+// ----- Transfer Money implementation-----
+btnTransfer.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(function (acc) {
+    return acc.username === inputTransferTo.value;
+  });
+  inputTransferAmount.value = inputTransferTo.value = "";
+
+  // checking conditions before transfer
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    console.log("transfer valid");
+    // dedcuting amount from current user
+    currentAccount.movements.push(-amount);
+
+    // adding amount to the sent user
+    receiverAcc.movements.push(amount);
+
+    // updating the user interface
+    updateUI(currentAccount);
+  }
+});
+
+//
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
