@@ -96,7 +96,7 @@ const calcDisplaySummary = function (movements) {
       return mov > 0;
     })
     .reduce(function (acc, inmov, i, arr) {
-      console.log(arr);
+      // console.log(arr);
       acc += inmov;
       return acc;
     }, 0);
@@ -107,7 +107,7 @@ const calcDisplaySummary = function (movements) {
       return mov < 0;
     })
     .reduce(function (acc, mov, arr) {
-      console.log(arr);
+      // console.log(arr);
       acc += mov;
       return acc;
     });
@@ -130,7 +130,7 @@ const calcDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${interest} EUR`;
 };
 
-console.log(calcDisplaySummary(account1.movements));
+// console.log(calcDisplaySummary(account1.movements));
 // creating user names
 const createuserName = function (accs) {
   accs.forEach(function (acc) {
@@ -146,8 +146,26 @@ const createuserName = function (accs) {
 
 displayMovements(account1.movements);
 createuserName(accounts);
-console.log(accounts);
 
+// =======================EVENT HANDLERS=====================
+
+// active account variable
+let currentAccount;
+
+// Login implementation
+btnLogin.addEventListener("click", function (e) {
+  // prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(function (acc) {
+    return acc.username === inputLoginUsername.value;
+    4;
+  });
+  console.log(currentAccount);
+  if (currentAccount?.pin === inputLoginPin.value) {
+    console.log(`login`);
+  }
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -209,7 +227,7 @@ const balance = movements.reduce(function (acc, curr, i, arr) {
   acc += curr;
   return acc;
 }, 0);
-console.log(balance);
+// console.log(balance);
 // findint the largest transaction
 const macTransaction = movements.reduce(function (acc, curr) {
   // return acc ? acc > curr : return curr;
@@ -217,7 +235,7 @@ const macTransaction = movements.reduce(function (acc, curr) {
   else return curr;
 }, movements[0]);
 
-console.log(macTransaction);
+// console.log(macTransaction);
 
 // MAP
 
@@ -225,12 +243,12 @@ console.log(macTransaction);
 const deposits = movements.filter(function (mov) {
   return mov > 0;
 });
-console.log(deposits);
+// console.log(deposits);
 const withdrawls = movements.filter(function (mov) {
   return mov < 0;
 });
 
-console.log(withdrawls);
+// console.log(withdrawls);
 
 // const euroToUsd = 1.1;
 // const movementsUSD = movements.map(function (mov) {
