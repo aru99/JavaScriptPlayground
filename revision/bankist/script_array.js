@@ -87,38 +87,39 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${totalBalance} EUR`;
 };
 
-calcDisplayBalance(account1.movements);
 // calculating the summary
-const calcDisplaySummary = function (movements) {
+const calcDisplaySummary = function (acc) {
+  console.log(acc.movements);
   //--------------- income summary-------------------
-  const incomes = movements
+  const incomes = acc.movements
     .filter(function (mov) {
       return mov > 0;
     })
-    .reduce(function (acc, inmov, i, arr) {
+    .reduce(function (accu, inmov, i, arr) {
       // console.log(arr);
-      acc += inmov;
-      return acc;
+      accu += inmov;
+      return accu;
     }, 0);
   labelSumIn.textContent = `${incomes} EUR`;
   //---------------- deposite ssummary------------------
-  const deposite = movements
+  const deposite = acc.movements
     .filter(function (mov) {
       return mov < 0;
     })
-    .reduce(function (acc, mov, arr) {
+    .reduce(function (accu, mov, arr) {
       // console.log(arr);
-      acc += mov;
-      return acc;
+      accu += mov;
+      return accu;
     });
   labelSumOut.textContent = `${Math.abs(deposite)} EUR`;
   //---------------- Interest summary------------------
-  const interest = movements
+  const interest = acc.movements
     .filter(function (mov) {
       return mov > 0;
     })
-    .map(function (dep) {
-      return (dep * 1.2) / 100;
+    .map(function (mov, i, arr) {
+      console.log(arr);
+      return (mov * acc.interestRate) / 100;
     })
     .filter(function (intval, i, arr) {
       console.log(`------${arr}----`);
@@ -144,7 +145,6 @@ const createuserName = function (accs) {
   });
 };
 
-displayMovements(account1.movements);
 createuserName(accounts);
 
 // =======================EVENT HANDLERS=====================
@@ -159,10 +159,26 @@ btnLogin.addEventListener("click", function (e) {
 
   currentAccount = accounts.find(function (acc) {
     return acc.username === inputLoginUsername.value;
-    4;
   });
-  console.log(currentAccount);
-  if (currentAccount?.pin === inputLoginPin.value) {
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //Display the welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(" ")[0]
+    }`;
+    containerApp.style.opacity = 100;
+    // clear login fields
+    inputLoginPin.value = inputLoginUsername.value = " ";
+    inputLoginPin.blur();
+
+    // Display movements
+    displayMovements(currentAccount.movements);
+
+    // Display balance
+    calcDisplayBalance(currentAccount.movements);
+
+    // Display summary
+    calcDisplaySummary(currentAccount);
     console.log(`login`);
   }
 });
