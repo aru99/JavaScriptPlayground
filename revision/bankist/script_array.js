@@ -62,9 +62,17 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 // tansactions movements
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
+  // implementing sort functionality
+  // by using the slice method we are creating a shallow copy of the array and not mutating the underlying original array
+  const movs = sort
+    ? movements.slice().sort(function (a, b) {
+        return a - b;
+      })
+    : movements;
+
   containerMovements.innerHTML = " ";
-  movements.forEach(function (mov, i) {
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : `withdrawal`;
     const html = `
     <div class="movements__row">
@@ -256,6 +264,14 @@ btnClose.addEventListener("click", function (e) {
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
+});
+
+// ----- sorting ----
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 //
 /////////////////////////////////////////////////
