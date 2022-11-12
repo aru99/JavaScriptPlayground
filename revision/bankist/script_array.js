@@ -217,6 +217,23 @@ btnTransfer.addEventListener("click", function (e) {
 });
 
 // ------------ Loan implementation-----------------
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some(function (mov) {
+      return mov >= amount * 0.1;
+    })
+  ) {
+    // add movement
+    currentAccount.movements.push(amount);
+    // update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
 
 // ------------ Delete Account implementation-----------------
 // inputCloseUsername = document.querySelector(".form__input--user");
