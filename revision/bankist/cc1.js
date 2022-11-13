@@ -61,8 +61,20 @@ const dogs = [
 
 // 1.adding the recommended food value for each dog
 dogs.forEach(function (dog) {
-  dog.recFood = Math.trunc(dog.weight ** 0.75 * 228);
+  dog.recFood = Math.trunc(dog.weight ** 0.75 * 28);
   return dog.recFood;
 });
 
 console.log(dogs);
+
+// finding sarah's dog
+const dogSarah = dogs.find(function (dog) {
+  return dog.owners.includes("Sarah");
+});
+
+console.log(dogSarah);
+console.log(
+  `Sarah's dog is eating too ${
+    dogSarah.recFood < dogSarah.curFood ? "much" : "little"
+  }`
+);
