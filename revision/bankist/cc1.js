@@ -9,15 +9,15 @@ const checkDogs = function (dogsjulia, dogskate) {
   const dogsJuliaCorrected = dogsjulia.slice();
   dogsJuliaCorrected.splice(0, 1);
   dogsJuliaCorrected.splice(-2);
-  console.log(dogsJuliaCorrected);
+  // console.log(dogsJuliaCorrected);
   const dogs = dogsJuliaCorrected.concat(dogskate);
-  console.log(dogs);
+  // console.log(dogs);
   //looping over dogs and finding which is dog which is puppy
   dogs.forEach(function (dog, i) {
     if (dog >= 3) {
-      console.log(`Dog number ${i + 1} is an Adult and is ${dog} years old`);
+      // console.log(`Dog number ${i + 1} is an Adult and is ${dog} years old`);
     } else if (dog < 3) {
-      console.log(`DOg number ${i + 1} is stil a Puppy`);
+      // console.log(`DOg number ${i + 1} is stil a Puppy`);
     }
   });
 };
@@ -37,11 +37,11 @@ const calcAverageHumanAge = function (dogAgesArr) {
       }
     })
     .filter(function (ages, i, arr) {
-      console.log(arr);
+      // console.log(arr);
       return ages > 18;
     })
     .reduce(function (acc, curr, i, arr) {
-      console.log(arr);
+      // console.log(arr);
       acc += curr;
       return Math.trunc(acc / arr.length);
     }, 0);
@@ -49,4 +49,20 @@ const calcAverageHumanAge = function (dogAgesArr) {
   return dogAgeHumanYears;
 };
 
-console.log(juliaArr, calcAverageHumanAge(juliaArr));
+// console.log(juliaArr, calcAverageHumanAge(juliaArr));
+
+// CC2 data
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+// 1.adding the recommended food value for each dog
+dogs.forEach(function (dog) {
+  dog.recFood = Math.trunc(dog.weight ** 0.75 * 228);
+  return dog.recFood;
+});
+
+console.log(dogs);
