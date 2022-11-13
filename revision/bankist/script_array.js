@@ -348,13 +348,13 @@ const macTransaction = movements.reduce(function (acc, curr) {
 // MAP
 
 // Filter
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
-// console.log(deposits);
-const withdrawls = movements.filter(function (mov) {
-  return mov < 0;
-});
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// // console.log(deposits);
+// const withdrawls = movements.filter(function (mov) {
+//   return mov < 0;
+// });
 
 // console.log(withdrawls);
 
@@ -382,3 +382,29 @@ const withdrawls = movements.filter(function (mov) {
 //   .join("");
 // console.log(userName);
 // -----------------------------------arrays methods practice-------
+// sum of all depositis
+const bankDepositeSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((sum, curr) => sum + curr);
+console.log(bankDepositeSum);
+
+// deposits greater than 1000
+const numDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 1000);
+console.log(numDeposits1000);
+
+// create an object of withdrawls and deposits
+const { deposits, withdrawls } = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, curr) => {
+      curr > 0 ? (sums.deposits += curr) : (sums.withdrawls += curr);
+
+      return sums;
+    },
+    { deposits: 0, withdrawls: 0 }
+  );
+
+console.log(deposits, withdrawls);
