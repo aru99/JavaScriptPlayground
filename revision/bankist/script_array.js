@@ -381,3 +381,4 @@ const withdrawls = movements.filter(function (mov) {
 //   })
 //   .join("");
 // console.log(userName);
+// -----------------------------------arrays methods practice-------
