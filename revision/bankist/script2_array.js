@@ -154,7 +154,21 @@ const updateUI = function (acc) {
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
+// Fake log in
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+// Dates
+const now = new Date();
+const day = now.getDate();
+const month = now.getMonth();
+const year = now.getFullYear();
+const hour = now.getHours();
+const min = now.getMinutes();
 
+labelDate.textContent = `${day}/ ${month}/${year}, ${hour}:${min}`;
+
+//
 btnLogin.addEventListener("click", function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -261,3 +275,9 @@ const randomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 };
 console.log(randomInt(5, 10));
+
+// create a date
+// const now = new Date();
+// console.log(now);
+// console.log(new Date("October 11, 2023"));
+// console.log(new Date("November 2, 2023"));
