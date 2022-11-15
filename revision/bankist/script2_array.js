@@ -198,13 +198,36 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogoutTimer = function () {
+  // set time to 5 minutes
+
+  let time = 10;
+  const min = String(Math.trunc(time / 60)).padStart(2, 0);
+  const sec = String(time % 60).padStart(2, 0);
+  // call the timer every second
+  const timer = setInterval(() => {
+    // IN each call. print the remaining time to the UI
+    labelTimer.textContent = `${min} : ${sec}`;
+
+    // when 0 seconds, stop timer and logout user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = `Login to get started`;
+      containerApp.style.opacity = 100;
+    }
+  }, 1000);
+
+  // Decrease 1s
+  time--;
+};
+
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
 // Fake log in
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 // Dates
 const now = new Date();
 const day = `${now.getDate()}`.padStart(2, 0);
@@ -215,7 +238,7 @@ const min = now.getMinutes();
 
 labelDate.textContent = `${day}/ ${month}/${year}, ${hour}:${min}`;
 
-//
+//----login---------
 btnLogin.addEventListener("click", function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -261,6 +284,7 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
+    startLogoutTimer();
     // Update UI
     updateUI(currentAccount);
   }
