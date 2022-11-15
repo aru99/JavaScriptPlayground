@@ -93,3 +93,9 @@ btnScroolTo.addEventListener('click', function (e) {
   // new way to do the same, only works on modern browsers.
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+// mouse Enterevent
+const h1 = document.querySelector('h1');
+h1.addEventListener('mouseenter', function (e) {
+  // h1.style.color = 'orangered';
+});
