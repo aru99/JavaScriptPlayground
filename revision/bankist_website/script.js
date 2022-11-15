@@ -56,3 +56,12 @@ document
   .addEventListener('click', function () {
     message.remove();
   });
+
+// styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+message.style.padding = '1rem';
+
+//increasing the height
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
