@@ -1,12 +1,13 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
+const btnScroolTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+///////////////////////////////////////
+// -----------------------Modal window------------------------------------
 
 const openModal = function (e) {
   e.preventDefault();
@@ -31,6 +32,41 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
+});
+
+// ------------------Smooth scrolling-----------------
+// old school way
+
+// eventlistener for scroll
+btnScroolTo.addEventListener('click', function (e) {
+  // getting coordinates to where we want to scroll
+  // const s1coords = section1.getBoundingClientRect();
+  // scrolling
+  // scrollTo(left_coordinates, top_coordinattes), always add the window.pageXoffset and window.pageYoffset to break the dependency of viewport dependency
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  // new way to do the same, only works on modern browsers.
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+//------------------- page navigation--------------
+//wihtout event delegation
+document.querySelectorAll('.nav__link').forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    // preventing the default anchor scroll  bahaviour
+    e.preventDefault();
+    const id = this.getAttribute('href');
+    console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
 /////////////////////////////////////////////////////////////////////////
@@ -66,9 +102,8 @@ message.style.padding = '1rem';
 //increasing the height
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
-*/
-
-// Smooth scrolling
+  
+  // Smooth scrolling
 // old school way
 
 const btnScroolTo = document.querySelector('.btn--scroll-to');
@@ -81,41 +116,42 @@ btnScroolTo.addEventListener('click', function (e) {
   // scrolling
   // scrollTo(left_coordinates, top_coordinattes), always add the window.pageXoffset and window.pageYoffset to break the dependency of viewport dependency
   // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset
-  // );
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
-
-  // new way to do the same, only works on modern browsers.
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
-// mouse Enterevent
-const h1 = document.querySelector('h1');
-h1.addEventListener('mouseenter', function (e) {
-  // h1.style.color = 'orangered';
-});
-
-// bubbling
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  e.stopPropagation();
-});
-
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
-
-document.querySelector('.nav').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-});
+    //   s1coords.left + window.pageXOffset,
+    //   s1coords.top + window.pageYOffset
+    // );
+    // window.scrollTo({
+      //   left: s1coords.left + window.pageXOffset,
+      //   top: s1coords.top + window.pageYOffset,
+      //   behavior: 'smooth',
+      // });
+      
+      // new way to do the same, only works on modern browsers.
+      section1.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // mouse Enterevent
+    const h1 = document.querySelector('h1');
+    h1.addEventListener('mouseenter', function (e) {
+      // h1.style.color = 'orangered';
+    });
+    
+    // bubbling
+    const randomInt = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+    
+    const randomColor = () =>
+    `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+    
+    document.querySelector('.nav__link').addEventListener('click', function (e) {
+      this.style.backgroundColor = randomColor();
+      e.stopPropagation();
+    });
+    
+    document.querySelector('.nav__links').addEventListener('click', function (e) {
+      this.style.backgroundColor = randomColor();
+    });
+    
+    document.querySelector('.nav').addEventListener('click', function (e) {
+      this.style.backgroundColor = randomColor();
+    });
+    */
