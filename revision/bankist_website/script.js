@@ -67,3 +67,29 @@ message.style.padding = '1rem';
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
 */
+
+// Smooth scrolling
+// old school way
+
+const btnScroolTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+// eventlistener for scroll
+btnScroolTo.addEventListener('click', function (e) {
+  // getting coordinates to where we want to scroll
+  const s1coords = section1.getBoundingClientRect();
+  // scrolling
+  // scrollTo(left_coordinates, top_coordinattes), always add the window.pageXoffset and window.pageYoffset to break the dependency of viewport dependency
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  // new way to do the same, only works on modern browsers.
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
