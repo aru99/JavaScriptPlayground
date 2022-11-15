@@ -35,6 +35,7 @@ document.addEventListener('keydown', function (e) {
 
 /////////////////////////////////////////////////////////////////////////
 
+/*
 const header = document.querySelector('header');
 const allSections = document.querySelectorAll('.section');
 console.log(allSections);
@@ -65,3 +66,4 @@ message.style.padding = '1rem';
 //increasing the height
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
+*/
