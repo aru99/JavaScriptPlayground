@@ -127,18 +127,37 @@ const handelHover = function (e) {
 };
 
 // passing argument into handler function
-nav.addEventListener('mouseover', handelHover.bind(0.5));
-nav.addEventListener('mouseout', handelHover.bind(1));
+// nav.addEventListener('mouseover', handelHover.bind(0.5));
+// nav.addEventListener('mouseout', handelHover.bind(1));
 
-//----- sticky navigation -----
-const initialCoords = section1.getBoundingClientRect();
-window.addEventListener('scroll', function () {
-  if (window.scrollY > initialCoords.top) {
+// //----- sticky navigation -----
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) {
     nav.classList.add('sticky');
   } else {
-    nav.classList.remove('sticky ');
+    nav.classList.remove('sticky');
   }
+};
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
 });
+headerObserver.observe(header);
+
+// const initialCoords = section1.getBoundingClientRect();
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY > initialCoords.top) {
+//     nav.classList.add('sticky');
+//   } else {
+//     nav.classList.remove('sticky ');
+//   }
+// });
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -225,4 +244,33 @@ btnScroolTo.addEventListener('click', function (e) {
     document.querySelector('.nav').addEventListener('click', function (e) {
       this.style.backgroundColor = randomColor();
     });
-    */
+  
+
+// intersection observer API
+
+// 5)callback function which would be passed into IntersectiionObserver()
+//this call back function will get called each time each time that the observed element, i.e the target element is intersecting the root element at the threshold taht we have defined. no matter if we are scrolling up or down
+//This call back function is called with two arguments, entries and the observer object itself
+//entries are an array of threshold entries
+const obsCallback = function (entries, observer) {
+  entries.forEach(entry => {
+    console.log(entry);
+  });
+};
+
+// 4)options which would be an object and would passed in the IntersectionObserver()
+const obsOptions = {
+  //this object first needs a root property, this root will be the element that we want our target element to intersect.
+
+  // putting null as the root, the target element would be intersecting with the entire viewport
+  root: null,
+  // percentage of intersection at which  the oberver call back would be called, we can multiple thresholds as an array
+  threshold: 0.1,
+};
+
+// 1)we would need to pass in a callback function and options object
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+
+//2) call the observer to observe a target element
+observer.observe(section1);
+  */
