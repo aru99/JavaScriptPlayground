@@ -303,6 +303,8 @@ const slider = function () {
 };
 
 slider();
+const messageStr = `find new opportunnities, dont be bound with the old ones`;
+
 /////////////////////////////////////////////////////////////////////////
 
 /*
