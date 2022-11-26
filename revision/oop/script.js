@@ -68,21 +68,20 @@ console.log(account.latest);
 account.latest = 50;
 console.log(account.movements);
 
-*/
 
 // ------- inheritance between the classes : constructor functions
 const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+    this.firstName = firstName;
+    this.birthYear = birthYear;
 };
 
 Person.prototype.calcAge = function () {
-  console.log(2022 - this.birthYear);
+    console.log(2022 - this.birthYear);
 };
 
 const Student = function (firstName, birthYear, course) {
-  Person.call(this, firstName, birthYear);
-  this.course = course;
+    Person.call(this, firstName, birthYear);
+    this.course = course;
 };
 
 // linking prototypes
@@ -90,9 +89,36 @@ Student.prototype = Object.create(Person.prototype);
 Student.prototype.constructor = Student;
 
 Student.prototype.introduction = function () {
-  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+    console.log(`My name is ${this.firstName} and I study ${this.course}`);
 };
 
 const mike = new Student('Mike', 1998, 'computer science');
 mike.introduction();
 mike.calcAge();
+*/
+
+// ------- inheritance between the classes : es6 class
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // instance methods
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // calling the constructor function of the parent class, this needs to happen first, as it's only after that we can access the 'this' keyword
+    super(fullName, birthYear);
+    this.course = course;
+  }
+}
+
+const martha = new StudentCl('Matha Jpnes', 1998, 'Computer Science');
