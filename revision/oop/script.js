@@ -125,23 +125,55 @@ const martha = new StudentCl('Matha Jpnes', 1998, 'Computer Science');
 
 // another class example
 
+// private fields
+//private methods
+//public fields
+//public methods
+
 class Account {
+  //public fields (instances)
+  locale = navigator.language;
+  // private fields (instances)
+  #movement = [];
+  #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movement = [];
-    this.locale = navigator.language;
+    //proteted property
+    this.#pin = pin;
 
     console.log(`Thanks for opening an account, ${owner}`);
   }
 
+  //----- Public methods-----
+  //public interface
+  getmovements() {
+    return this.#movement;
+  }
+
   deposite(val) {
-    this.movement.push(val);
+    this.#movement.push(val);
+    return this;
   }
 
   withdrawl(val) {
     this.deposite(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    // if (this.#approveLoan(val)) {
+    if (this._approveLoan(val)) {
+      this.deposite(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+  //   -----private methods-----
+  //   #approveLoan(val) {
+
+  _approveLoan(val) {
+    return true;
   }
 }
 
@@ -149,3 +181,6 @@ const acc1 = new Account('Arman', 'INR', 110047);
 acc1.deposite(200);
 acc1.withdrawl(20);
 console.log(acc1);
+
+acc1.withdrawl(100).deposite(1000).requestLoan(5000).withdrawl(400);
+console.log(acc1.getmovements());
