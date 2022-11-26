@@ -95,7 +95,6 @@ Student.prototype.introduction = function () {
 const mike = new Student('Mike', 1998, 'computer science');
 mike.introduction();
 mike.calcAge();
-*/
 
 // ------- inheritance between the classes : es6 class
 
@@ -118,7 +117,35 @@ class StudentCl extends PersonCl {
     // calling the constructor function of the parent class, this needs to happen first, as it's only after that we can access the 'this' keyword
     super(fullName, birthYear);
     this.course = course;
-  }
+}
 }
 
 const martha = new StudentCl('Matha Jpnes', 1998, 'Computer Science');
+*/
+
+// another class example
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movement = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  deposite(val) {
+    this.movement.push(val);
+  }
+
+  withdrawl(val) {
+    this.deposite(-val);
+  }
+}
+
+const acc1 = new Account('Arman', 'INR', 110047);
+acc1.deposite(200);
+acc1.withdrawl(20);
+console.log(acc1);
