@@ -48,12 +48,11 @@ const nora = new personCl('Nora', 1998);
 const jessi = new personCl('jessi', 1996);
 jessi.calcAge();
 nora.calcAge();
-*/
 
 // getters and setters
 
 const account = {
-  owner: 'Jonas',
+    owner: 'Jonas',
   movements: [200, 500, 120, 300, 450],
 
   get latest() {
@@ -68,3 +67,32 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+*/
+
+// ------- inheritance between the classes : constructor functions
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2022 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// linking prototypes
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.introduction = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 1998, 'computer science');
+mike.introduction();
+mike.calcAge();
