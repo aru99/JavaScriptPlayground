@@ -10,3 +10,33 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+
+if (navigator.geolocation) {
+  // using geolocation API, geolocation.getcurrentPosition() takes in two call back functions,1) post successful location 2) in case of an error while getting the coordinates
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+      console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+
+      const coords = [latitude, longitude];
+
+      //   ----- Leaflet map implementation start-----
+      const map = L.map('map').setView(coords, 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker(coords)
+        .addTo(map)
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup();
+      //   ----- Leaflet map implementation end-----
+    },
+    function () {
+      alert('Could not get your position');
+    }
+  );
+}
