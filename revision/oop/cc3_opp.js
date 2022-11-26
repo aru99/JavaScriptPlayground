@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -29,3 +30,45 @@ Ev.prototype.accelerate = function () {
 };
 const tesla = new Ev('Tesla', 100, 80);
 tesla.accelerate();
+*/
+
+// cc4 recreate cc3 usig es6 classes
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  //   public methods
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} going at ${this.speed}`);
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} going at ${this.speed}`);
+
+    return this;
+  }
+}
+
+class EvCl extends CarCl {
+  // private fields
+  #batteryCharge;
+  constructor(make, speed, batteryCharge) {
+    super(make, speed);
+    this.#batteryCharge = batteryCharge;
+  }
+
+  //   public method
+  charge() {
+    console.log(`, with a charge of ${this.#batteryCharge}`);
+    return this;
+  }
+}
+
+const rivian = new EvCl('Rivian', 100, 23);
+rivian.accelerate().charge();
