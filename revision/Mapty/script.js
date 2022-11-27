@@ -81,8 +81,11 @@ class App {
 
   //Constructor function, executed as soon as the object instance is creadted
   constructor() {
+    // get user location
     this._getPosition();
 
+    //Get data from local storage
+    this._getLocaleStorage();
     //submitting the form and displaying the marker
     form.addEventListener('submit', this._newWorkout.bind(this));
     //toggling the form field based on the workout type
@@ -123,6 +126,11 @@ class App {
     this.#map.on('click', this._showForm.bind(this));
 
     //   ----- Leaflet map implementation end-----
+
+    // rendering markers of previous workouts upon page load
+    this.#workouts.forEach(work => {
+      this._renderWorkoutMarker(work);
+    });
   }
 
   //   displaying form on click
@@ -210,6 +218,8 @@ class App {
 
     //Hide the form +  clearing input fields
     this._hideForm();
+    //set local storage to all workouts
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -298,7 +308,30 @@ class App {
     });
 
     // using the public interface
-    workout.click();
+    // workout.click();
+  }
+  _setLocalStorage() {
+    // dont use this to store large amounts of data
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocaleStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    console.log(data);
+
+    if (!data) return;
+
+    this.#workouts = data;
+    this.#workouts.forEach(work => {
+      this._renderWorkout(work);
+      //   this._renderWorkoutMarker(work);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 
