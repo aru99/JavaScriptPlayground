@@ -193,4 +193,7 @@ const getJson = function (url, errMsg = 'Something went wrong') {
 // whereAmI(19.037, 72.873);
 // whereAmI(-33.933, 18.474);
 
-console.log();
+console.log('Test Start');
+setTimeout(() => console.log('0 set timer'), 0);
+Promise.resolve('Resolve Promise 1').then(res => console.log(res));
+console.log('test end');
