@@ -87,7 +87,7 @@ const renderCountry = function (data, className) {
               `;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  //   countriesContainer.style.opacity = 1;
 };
 // promises
 const request = fetch(`https://restcountries.com/v2/name/portugal`);
@@ -114,7 +114,20 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
     })
     .then(response => response.json())
-    .then(data => renderCountry(data, 'neighbour'));
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      renderError(`Something went wrong XD ${err.message} TRY again `);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData('portugal');
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+};
+btn.addEventListener('click', function () {
+  getCountryData('portugal');
+});
+
+getCountryData('ssdsd');
