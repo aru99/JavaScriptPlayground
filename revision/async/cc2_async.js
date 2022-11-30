@@ -45,3 +45,4 @@ createImage('img/img-1.jpg')
     currentImage.style.display = 'none';
   })
   .catch(err => console.error(err));
+// cc3
