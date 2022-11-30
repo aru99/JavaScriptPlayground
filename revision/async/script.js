@@ -193,7 +193,36 @@ const getJson = function (url, errMsg = 'Something went wrong') {
 // whereAmI(19.037, 72.873);
 // whereAmI(-33.933, 18.474);
 
-console.log('Test Start');
-setTimeout(() => console.log('0 set timer'), 0);
-Promise.resolve('Resolve Promise 1').then(res => console.log(res));
-console.log('test end');
+// console.log('Test Start');
+// setTimeout(() => console.log('0 set timer'), 0);
+// Promise.resolve('Resolve Promise 1').then(res => console.log(res));
+// console.log('test end');
+
+//---- promises-----
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log(`Lottery draw is hapenning`);
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve(`You Win :))`);
+    } else {
+      reject(new Error(`you lost :((`));
+    }
+  }, 3000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+
+// Promisifying SetTimout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('i waited for 2 seconds');
+    return wait(1);
+  })
+  .then(() => console.log(` I waited for 1 second`));
