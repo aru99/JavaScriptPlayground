@@ -200,29 +200,62 @@ const getJson = function (url, errMsg = 'Something went wrong') {
 
 //---- promises-----
 
-const lotteryPromise = new Promise(function (resolve, reject) {
-  console.log(`Lottery draw is hapenning`);
-  setTimeout(function () {
-    if (Math.random() >= 0.5) {
-      resolve(`You Win :))`);
-    } else {
-      reject(new Error(`you lost :((`));
-    }
-  }, 3000);
-});
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log(`Lottery draw is hapenning`);
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve(`You Win :))`);
+//     } else {
+//       reject(new Error(`you lost :((`));
+//     }
+//   }, 3000);
+// });
 
-lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+// lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
 
-// Promisifying SetTimout
-const wait = function (seconds) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, seconds * 1000);
+// // Promisifying SetTimout
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+// wait(2)
+//   .then(() => {
+//     console.log('i waited for 2 seconds');
+//     return wait(1);
+//   })
+//   .then(() => console.log(` I waited for 1 second`));
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
 
-wait(2)
-  .then(() => {
-    console.log('i waited for 2 seconds');
-    return wait(1);
-  })
-  .then(() => console.log(` I waited for 1 second`));
+// getPosition().then(pos => console.log(pos));
+// function
+const whereAmI = function () {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(`You are in ${data.city}, ${data.country}`);
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Country not found(${res.status})`);
+      return res.json();
+    })
+    .then(data => renderCountry(data[0]))
+    .catch(err => console.error(`${err.message} 💣`));
+};
+
+btn.addEventListener('click', whereAmI);
