@@ -548,6 +548,7 @@ const timeout = function(s) {
     });
 };
 // https://forkify-api.herokuapp.com/v2
+console.log("dummy test ");
 ///////////////////////////////////////
 // -----spinner function-----
 const renderSpinner = function(parentEl) {
